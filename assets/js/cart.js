@@ -5,6 +5,9 @@ const cartTotalEl = document.getElementById('cart-total');
 const cartCountEl = document.getElementById('cart-count');
 const clearCartBtn = document.getElementById('clear-cart');
 
+const closeCart = document.getElementById('close-cart');
+const overlay = document.querySelector('.cart-overlay');
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function saveCart() {
@@ -12,35 +15,47 @@ function saveCart() {
   updateCartUI();
 }
 
+// rebuild cart UI
 function updateCartUI() {
   cartItemsContainer.innerHTML = '';
   let total = 0;
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = `<p class="empty-cart">your cart’s empty ✨</p>`;
+  }
+
   cart.forEach(item => {
     total += item.price;
     const el = document.createElement('div');
     el.className = 'cart-item';
     el.innerHTML = `
       <img src="${item.image}" alt="${item.name}">
-      <span>${item.name}</span>
-      <span>₹${item.price}</span>
-      <button onclick="removeItem('${item.id}')">&times;</button>
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <span>₹${item.price}</span>
+      </div>
+      <button class="remove-btn" aria-label="Remove" onclick="removeItem('${item.id}')">&times;</button>
     `;
     cartItemsContainer.appendChild(el);
   });
+
   cartTotalEl.textContent = total.toFixed(2);
   cartCountEl.textContent = cart.length;
 }
 
+// remove single item
 function removeItem(id) {
   cart = cart.filter(item => item.id !== id);
   saveCart();
 }
 
+// clear cart
 function clearCart() {
   cart = [];
   saveCart();
 }
 
+// add item
 function addToCart(btn) {
   const item = {
     id: btn.dataset.id,
@@ -48,27 +63,47 @@ function addToCart(btn) {
     price: parseFloat(btn.dataset.price),
     image: btn.dataset.image
   };
+
   if (!cart.some(p => p.id === item.id)) {
     cart.push(item);
     saveCart();
+
+    // subtle add animation
+    btn.textContent = "Added ✓";
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = "Add to cart";
+      btn.disabled = false;
+    }, 1200);
   }
 }
 
+// attach event listeners
 document.querySelectorAll('.add-to-cart').forEach(btn => {
   btn.addEventListener('click', () => addToCart(btn));
 });
 
-cartBtn.addEventListener('click', () => {
-  cartModal.style.display = 'flex';
-});
+if (cartBtn) {
+  cartBtn.addEventListener('click', () => {
+    cartModal.classList.add('active');
+  });
+}
 
-cartModal.addEventListener('click', e => {
-  if (e.target === cartModal) cartModal.style.display = 'none';
-});
+if (closeCart) {
+  closeCart.addEventListener('click', () => {
+    cartModal.classList.remove('active');
+  });
+}
 
-clearCartBtn.addEventListener('click', clearCart);
+if (overlay) {
+  overlay.addEventListener('click', () => {
+    cartModal.classList.remove('active');
+  });
+}
 
-window.addEventListener('DOMContentLoaded', updateCartUI);
+if (clearCartBtn) {
+  clearCartBtn.addEventListener('click', clearCart);
+}
 
-// expose for inline remove
-window.removeItem = removeItem;
+// init on load
+updateCartUI();
