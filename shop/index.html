@@ -13,32 +13,54 @@
   <header class="site-header">
     <nav>
       <div class="logo">lumipuchi</div>
+
       <ul class="nav-links">
-<button id="theme-toggle" class="theme-toggle" aria-label="toggle dark mode">
-  <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-    <path d="M12 3a9 9 0 0 0 0 18c4.97 0 9-4.03 9-9 0-.46-.04-.91-.1-1.35A6.5 6.5 0 0 1 12 3z"/>
-  </svg>
-</button>
         <li><a href="../#">Home</a></li>
         <li><a href="#">Shop</a></li>
         <li><a href="../contact/">Contact</a></li>
       </ul>
+
+        <div class="cart-icon" id="cart-btn">
+          🛒 <span id="cart-count">0</span>
+        </div>
+      </div>
     </nav>
   </header>
 
-<div class="card">
-  <img src="../assets/images/keychain.jpg" alt="Kawaii Keychain">
-  <div class="card-content">
-    <h3>Kawaii Cherry Keychain</h3>
-    <p>cute cherry charm, enamel finish</p>
-    <div class="price">₹349</div>
-    <button class="btn">Add to cart</button>
-  </div>
-</div>
+  <main>
+    <div class="card">
+      <img src="../assets/images/keychain.jpg" alt="Kawaii Keychain">
+      <div class="card-content">
+        <h3>Kawaii Cherry Keychain</h3>
+        <p>cute cherry charm, enamel finish</p>
+        <div class="price">₹349</div>
+        <button class="btn add-to-cart"
+                data-id="keychain-001"
+                data-name="Kawaii Cherry Keychain"
+                data-price="349"
+                data-image="../assets/images/keychain.jpg">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  </main>
 
   <footer>
     <p>© 2025 lumipuchi. All rights reserved.</p>
   </footer>
-<script src="../assets/js/script.js"></script>
+
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+      <h2>Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-footer">
+        <span>Total: ₹<span id="cart-total">0</span></span>
+        <button id="clear-cart" class="btn clear-btn">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/cart.js"></script>
 </body>
 </html>
