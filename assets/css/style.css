@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 :root {
   /* refined palette for a premium feel */
@@ -122,14 +122,42 @@ nav {
 }
 
 .logo {
-  font-weight: 700;
+  font-family: 'Playfair Display', 'Cormorant Garamond', serif;
+  font-weight: 500;
   color: var(--text);
-  font-size: 1.25rem;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid transparent;
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  position: relative;
+  text-transform: none;
+  background: linear-gradient(120deg, transparent, var(--glass), transparent);
+  transition: all 0.3s ease;
+}
+
+.logo::before,
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, transparent, var(--primary), transparent);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo:hover::before,
+.logo:hover::after {
+  opacity: 1;
 }
 
 .nav-links {
