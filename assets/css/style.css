@@ -1,3 +1,12 @@
+/*
+Theme Name: Lumipuchi Theme
+Author: @sidharthify x @amritokun
+Description: A custom theme for the Lumipuchi store, designed for WooCommerce.
+Version: 1.0
+Requires at least: 5.0
+Tested up to: 6.0
+Requires PHP: 7.4
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
 :root {
