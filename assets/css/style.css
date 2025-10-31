@@ -133,6 +133,8 @@ nav {
   text-transform: none;
   background: linear-gradient(120deg, transparent, var(--glass), transparent);
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
 }
 
 .logo::before,
