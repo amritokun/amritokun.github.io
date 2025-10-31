@@ -9,7 +9,6 @@ function saveCart() {
 function updateCartUI() {
   const cartItemsContainer = document.getElementById('cart-items');
   const cartTotalEl = document.getElementById('cart-total');
-  const cartCountEl = document.getElementById('cart-count');
   cartItemsContainer.innerHTML = '';
   let total = 0;
 
@@ -33,7 +32,6 @@ function updateCartUI() {
   });
 
   if (cartTotalEl) cartTotalEl.textContent = total.toFixed(2);
-  if (cartCountEl) cartCountEl.textContent = cart.length;
 }
 
 // remove single item
