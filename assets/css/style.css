@@ -109,6 +109,7 @@ html.dark body::before {
   position: sticky;
   top: 0;
   z-index: 1000;
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
   backdrop-filter: blur(6px) saturate(120%);
 }
 
@@ -145,8 +146,8 @@ nav {
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(120deg, transparent, var(--primary), transparent);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -231,6 +232,42 @@ html.dark .nav-icon {
   stroke: var(--text);
 }
 
+/* search */
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  border: 1px solid transparent;
+  background: var(--glass);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  position: absolute;
+  right: 2.5rem; /* Position it to the left of the icon */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-container.active .search-input {
+  width: 200px;
+  opacity: 1;
+  visibility: visible;
+  padding-right: 2.5rem; /* Make space for the icon that will overlay it */
+}
+
+.search-container #search-btn {
+  z-index: 2; /* Ensure search icon is clickable over the input */
+}
+
 /* hero */
 .hero {
   text-align: center;
@@ -282,6 +319,7 @@ html.dark .nav-icon {
   box-shadow: var(--shadow-1);
   overflow: hidden;
   width: 100%;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
@@ -400,6 +438,7 @@ html.dark .cta-btn {
 
 .cart-overlay {
   flex: 1;
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   background: rgba(0, 0, 0, 0.35);
   transition: opacity 0.3s ease;
@@ -408,6 +447,7 @@ html.dark .cta-btn {
 /* main cart panel */
 .cart-panel {
   background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   color: var(--text);
   width: 350px;
@@ -433,6 +473,7 @@ html.dark .cta-btn {
 /* dark theme cart panel */
 html.dark .cart-panel {
   background: rgba(15, 12, 18, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(130%);
   backdrop-filter: blur(20px) saturate(130%);
   box-shadow: -4px 0 40px rgba(255, 154, 194, 0.12);
   border-left: 1px solid rgba(255, 154, 194, 0.15);
@@ -485,6 +526,21 @@ html.dark .cart-panel {
   margin-bottom: 1rem;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;
+}
+
+/* Webkit scrollbar styling for cross-browser compatibility */
+.cart-items::-webkit-scrollbar {
+  width: 8px; /* Adjust as needed */
+}
+
+.cart-items::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 10px;
+  border: 2px solid transparent; /* To make the thumb thinner */
 }
 
 .cart-item {
@@ -638,6 +694,7 @@ html.dark #theme-icon {
 /* footer */
 .site-footer {
   background: var(--glass-gradient);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-top: 1px solid var(--border-light);
   padding: 5rem 0 2rem;
@@ -804,6 +861,7 @@ html.dark #theme-icon {
   border-top: 1px solid var(--border-light);
   color: var(--muted);
   font-size: 0.9rem;
+  -webkit-backdrop-filter: blur(8px);
   background: var(--glass-gradient);
   backdrop-filter: blur(8px);
 }
