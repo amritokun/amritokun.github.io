@@ -564,10 +564,6 @@ html.dark .cart-item {
   border: 1px solid rgba(255, 154, 194, 0.08);
 }
 
-html.dark #cart-count {
-  color: #fff;
-}
-
 .cart-item img {
   width: 60px;
   height: 60px;
