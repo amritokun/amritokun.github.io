@@ -170,6 +170,7 @@ nav {
   margin-top: 2px;
   color: var(--muted);
   text-transform: none;
+  padding-left: 0.75rem; /* Align with logo's horizontal padding */
 }
 
 .nav-links {
