@@ -1084,9 +1084,7 @@ html.dark .woocommerce-account .woocommerce-info {
 }
 
 html.dark .woocommerce-account .woocommerce-Address-col {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 2rem;
-    border-radius: 12px;
+    /* This is now handled by the main content container */
 }
 
 .woocommerce-Address-title {
@@ -1205,8 +1203,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 }
 
 html.dark .woocommerce-orders-table tbody tr {
-    background-color: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background-color: transparent;
 }
 
 .woocommerce-orders-table tbody tr:hover {
