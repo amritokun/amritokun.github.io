@@ -1021,6 +1021,145 @@ html.light .woocommerce-account .woocommerce-MyAccount-content {
     color: #ffa6d0;
 }
 
+/*
+* My Account - Orders Tab Styles
+* --------------------------------------------------
+*/
+html.dark .woocommerce-account .woocommerce-MyAccount-content {
+    background: linear-gradient(135deg, #20102d, #2e1840);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 0 20px rgba(255, 111, 181, 0.1);
+    border-left: none;
+}
+
+/* "No orders" message styling */
+.woocommerce-account .woocommerce-info {
+    border-top-color: var(--primary);
+    background-color: var(--accent);
+    text-align: center;
+    padding: 2rem;
+}
+
+html.dark .woocommerce-account .woocommerce-info {
+    background: transparent;
+    border: none;
+    color: #f8e4f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+/* "Browse products" button styling */
+.woocommerce-account .woocommerce-info .button {
+    background-color: #ff6fb5;
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.75rem 1.6rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.woocommerce-account .woocommerce-info .button:hover {
+    background-color: #ff94c8;
+    box-shadow: 0 0 10px rgba(255, 111, 181, 0.4);
+}
+
+/*
+* My Account - Addresses Tab Styles
+* --------------------------------------------------
+*/
+.woocommerce-account .woocommerce-Addresses {
+    display: flex;
+    gap: 2rem;
+}
+
+.woocommerce-account .woocommerce-Address-col {
+    flex: 1;
+    background: var(--accent);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+}
+
+html.dark .woocommerce-account .woocommerce-Address-col {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.woocommerce-Address-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.woocommerce-Address-title h3 {
+    color: var(--text);
+}
+
+html.dark .woocommerce-Address-title h3 {
+    color: #f8e4f1;
+}
+
+.woocommerce-Address-title .edit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.woocommerce-Address address {
+    color: var(--muted);
+    font-style: normal;
+    line-height: 1.7;
+}
+
+/* Form Styling (for editing addresses) */
+.woocommerce-account form.edit-address .form-row {
+    margin-bottom: 1.5rem;
+}
+
+.woocommerce-account form .form-row label {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+html.dark .woocommerce-account form .form-row label {
+    color: #cfc0cc;
+}
+
+.woocommerce-account form .form-row input.input-text {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: var(--text);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html.dark .woocommerce-account form .form-row input.input-text {
+    background-color: rgba(0,0,0,0.2);
+    border-color: rgba(255,255,255,0.2);
+    color: #f3e9ef;
+}
+
+.woocommerce-account form .form-row input.input-text:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(255, 111, 181, 0.2);
+    outline: none;
+}
+
+@media (max-width: 768px) {
+    .woocommerce-account .woocommerce-Addresses {
+        flex-direction: column;
+    }
+}
 /* Dark mode specific text colors */
 html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
     color: #f8e4f1;

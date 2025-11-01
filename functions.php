@@ -28,3 +28,15 @@ function lumipuchi_enqueue_scripts() {
     wp_add_inline_script('lumipuchi-theme', $init_script);
 }
 add_action('wp_enqueue_scripts', 'lumipuchi_enqueue_scripts');
+
+/**
+ * Remove "Downloads" from My Account menu.
+ *
+ * @param array $items The original menu items.
+ * @return array The modified menu items.
+ */
+function lumipuchi_remove_downloads_from_account_menu($items) {
+    unset($items['downloads']);
+    return $items;
+}
+add_filter('woocommerce_account_menu_items', 'lumipuchi_remove_downloads_from_account_menu');
