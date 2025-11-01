@@ -15,7 +15,10 @@
 
 <header class="site-header">
   <nav>
-    <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">lumipuchi</a>
+    <div class="logo-wrapper">
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">lumipuchi</a>
+      <span class="logo-tagline">handpicked kawaii items</span>
+    </div>
     <ul class="nav-links"></ul>
     <div class="nav-actions">
       <div class="search-container">
