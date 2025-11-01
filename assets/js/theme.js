@@ -21,3 +21,5 @@ function initTheme() {
 
   toggle.addEventListener('click', () => setTheme(!root.classList.contains('dark')));
 }
+
+document.addEventListener('DOMContentLoaded', initTheme);

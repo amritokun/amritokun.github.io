@@ -7,6 +7,11 @@ function lumipuchi_theme_setup() {
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
 }
+
+    // Register navigation menus
+    register_nav_menus(array(
+        'primary' => __('Primary Menu', 'lumipuchi'),
+    ));
 add_action('after_setup_theme', 'lumipuchi_theme_setup');
 
 function lumipuchi_enqueue_scripts() {
@@ -20,7 +25,20 @@ function lumipuchi_enqueue_scripts() {
 
     // Note: cart.js will be replaced by WooCommerce's built-in functionality,
     // so we don't enqueue it here.
+
+    // Add an inline script to initialize the theme scripts
+    $init_script = "document.addEventListener('DOMContentLoaded', () => { if(typeof initTheme === 'function') initTheme(); if(typeof initSearch === 'function') initSearch(); });";
+    wp_add_inline_script('lumipuchi-theme', $init_script);
 }
 add_action('wp_enqueue_scripts', 'lumipuchi_enqueue_scripts');
 
+function lumipuchi_cart_link_fragment($fragments) {
+    ob_start();
+    ?>
+    <span id="cart-count" class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+    <?php
+    $fragments['span#cart-count'] = ob_get_clean();
+    return $fragments;
+}
+add_filter('woocommerce_add_to_cart_fragments', 'lumipuchi_cart_link_fragment');
 ?>

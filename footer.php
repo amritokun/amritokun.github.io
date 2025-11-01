@@ -9,17 +9,17 @@
     <div class="footer-section">
       <h3>Important Links</h3>
       <ul class="footer-links">
-        <li><a href="<?php echo esc_url(get_permalink(wc_get_page_id('shop'))); ?>">Shop</a></li>
-        <li><a href="/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="/terms/">Terms & Conditions</a></li>
+        <li><a href="<?php echo esc_url(home_url('/contact/')); ?>">Contact Us</a></li>
+        <li><a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy Policy</a></li>
+        <li><a href="<?php echo esc_url(home_url('/terms/')); ?>">Terms & Conditions</a></li>
       </ul>
     </div>
     <div class="footer-section">
       <h3>Information</h3>
       <ul class="footer-links">
-        <li><a href="/about/">About Us</a></li>
-        <li><a href="/shipping/">Shipping Policy</a></li>
-        <li><a href="/track/">Track Order</a></li>
+        <li><a href="<?php echo esc_url(home_url('/about/')); ?>">About Us</a></li>
+        <li><a href="<?php echo esc_url(home_url('/shipping/')); ?>">Shipping Policy</a></li>
+        <li><a href="<?php echo esc_url(home_url('/track/')); ?>">Track Order</a></li>
       </ul>
     </div>
     <div class="footer-section">
@@ -46,5 +46,6 @@
 </footer>
 
 <?php wp_footer(); ?>
+
 </body>
 </html>
