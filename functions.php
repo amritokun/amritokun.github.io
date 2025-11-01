@@ -23,10 +23,6 @@ function lumipuchi_enqueue_scripts() {
     wp_enqueue_script('lumipuchi-theme', get_template_directory_uri() . '/assets/js/theme.js', array(), '1.0', true);
     wp_enqueue_script('lumipuchi-search', get_template_directory_uri() . '/assets/js/search.js', array(), '1.0', true);
 
-    // Note: cart.js will be replaced by WooCommerce's built-in functionality,
-    // so we don't enqueue it here.
-
-    // Add an inline script to initialize the theme scripts
     $init_script = "document.addEventListener('DOMContentLoaded', () => { if(typeof initTheme === 'function') initTheme(); if(typeof initSearch === 'function') initSearch(); });";
     wp_add_inline_script('lumipuchi-theme', $init_script);
 }

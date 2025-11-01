@@ -542,7 +542,7 @@ html.dark .cart-panel {
 
 /* Webkit scrollbar styling for cross-browser compatibility */
 .cart-items::-webkit-scrollbar {
-  width: 8px; /* Adjust as needed */
+  width: 8px;
 }
 
 .cart-items::-webkit-scrollbar-track {
@@ -552,7 +552,11 @@ html.dark .cart-panel {
 .cart-items::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 10px;
-  border: 2px solid transparent; /* To make the thumb thinner */
+  border: 2px solid var(--surface);
+}
+
+html.dark .cart-items::-webkit-scrollbar-thumb {
+  border-color: var(--surface);
 }
 
 .cart-item {
