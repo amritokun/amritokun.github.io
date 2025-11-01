@@ -140,20 +140,16 @@ nav {
 .logo-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Align logo text to the left */
   line-height: 1;
-  position: absolute; /* Center the logo absolutely */
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
   color: var(--text);
-  font-size: 2rem;
-  letter-spacing: 0.1em;
+  font-size: 1.8rem; /* Slightly adjust for balance */
+  letter-spacing: 0.08em;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-lg);
   text-transform: none; 
@@ -179,7 +175,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  margin: 0; /* Let justify-content handle spacing */
+  margin: 0 auto; /* Center the nav links */
   align-items: center;
   gap: 1.2rem;
 }
@@ -1218,12 +1214,9 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   }
 
   .logo-wrapper {
-    position: static; /* Revert absolute positioning */
-    transform: none; /* Reset transform */
     width: 100%;
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--accent); /* Use theme variable for consistency */
   }
 
   html.dark .logo-wrapper {
