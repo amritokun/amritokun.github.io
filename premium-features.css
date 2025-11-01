@@ -1,0 +1,209 @@
+/* 1. Animated Gradient Section Divider */
+.animated-gradient-divider {
+    height: 100px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+/* You can use an online tool like `shapedivider.app` to generate custom SVG shapes */
+.wavy-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.wavy-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px; /* Adjust height */
+}
+
+.wavy-divider .shape-fill {
+    fill: #FFFFFF; /* Should match the background of the section below it */
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 3. Micro-interactions */
+.button-micro-interaction {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.button-micro-interaction:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 4. Floating Mini User Dashboard */
+.floating-user-dashboard {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-user-dashboard .dashboard-toggle {
+    background-color: #23a6d5;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.floating-user-dashboard .dashboard-toggle:hover {
+    transform: scale(1.1);
+}
+
+.floating-user-dashboard .dashboard-content {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 280px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.floating-user-dashboard.open .dashboard-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 5. Layered Gradient Overlay for Hero Section */
+.hero-gradient-overlay {
+    position: relative;
+    color: white; /* Ensure text is readable */
+}
+.hero-gradient-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: 1; /* Make sure it's above the background image but below the content */
+}
+
+.hero-gradient-overlay .hero-content {
+    position: relative;
+    z-index: 2; /* Place content above the overlay */
+}
+
+/*  font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quick-actions-fab .fab-actions {
+}
+.quick-actions-fab.open .fab-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.quick-actions-fab .fab-action {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #23a6d5;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+    .quick-actions-fab { display: block; }
+    .floating-user-dashboard { display: none; } /* Hide the other FAB on mobile */
+}
+
+/* 🧱 Form Enhancements */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.form-input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background: transparent;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-input:focus {
+    outline: none;
+    border-color: #23a6d5;
+    box-shadow: 0 0 8px rgba(35, 166, 213, 0.5);
+}
+.form-label {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    color: #999;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+    top: -15px;
+    font-size: 0.8rem;
+    color: #23a6d5;
+}
+.gradient-submit {
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.gradient-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(229, 46, 113, 0.3);
+}
+
+/* 📦 WooCommerce Integration */
+.woocommerce ul.products li.product .woocommerce-loop-product__link img {
+    border-radius: 15px; /* Rounded product images */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__link img {
+    transform: scale(1.05); /* Zoom-in hover effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.woocommerce a.add_to_cart_button, .woocommerce button.button.alt {
+    transition: box-shadow 0.3s ease !important;
+}
+.woocommerce a.add_to_cart_button:hover, .woocommerce button.button.alt:hover {
+    background-color: #e73c7e !important; /* Example pink color */
+    box-shadow: 0 0 15px rgba(231, 60, 126, 0.7) !important; /* Pink glow */
+}
