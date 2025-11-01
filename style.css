@@ -887,106 +887,133 @@ html.dark #theme-icon {
   background: var(--glass-gradient);
   backdrop-filter: blur(8px);
 }
-
 /*
 * My Account Page Styles
 * --------------------------------------------------
 */
 .woocommerce-account .entry-content {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
 }
 
 .woocommerce-account .woocommerce {
-  display: flex;
-  gap: 2.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  background: var(--glass);
-  padding: 2.5rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-2);
-  color: #f3e9ef;
+    display: flex;
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
 }
 
 html.light .woocommerce-account .woocommerce {
     background: linear-gradient(135deg, #fff6f8, #fdf4fa);
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-2);
 }
 
-html.dark .woocommerce-account .woocommerce { background: transparent; box-shadow: none; }
-
 .woocommerce-account .woocommerce-MyAccount-navigation {
-  flex: 0 0 220px; /* Set a fixed width for the navigation */
+    flex: 0 0 240px; /* Sidebar width */
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li a {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.2rem;
-  border-radius: 12px;
-  color: var(--muted);
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    border-radius: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
-  color: var(--primary);
-  background-color: var(--accent);
-  border-color: var(--primary);
+    color: #ff4fa5;
+    background-color: var(--accent);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
-  background-color: var(--accent);
-  color: var(--primary);
-  transform: translateY(-2px);
+    background-color: var(--accent);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+    background-color: rgba(255, 79, 165, 0.15);
+    color: #ff6fb5;
 }
 
 html.dark .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
-  color: var(--primary-2);
+    color: #ffa6d0;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .lumipuchi-account-icon {
     display: inline-block;
     width: 20px;
     height: 20px;
+    stroke-width: 1.8;
 }
 
 .lumipuchi-account-icon svg {
     width: 100%;
     height: 100%;
-    stroke-width: 1.8;
 }
 
 .woocommerce-account .woocommerce-MyAccount-content {
-  flex: 1;
-  padding-left: 2.5rem;
-  border-left: 1px solid var(--accent);
+    flex: 1;
 }
 
-html.light .woocommerce-account .woocommerce-MyAccount-content {
-    border-left-color: #eee;
+html.dark .woocommerce-account .woocommerce-MyAccount-content {
+    background: linear-gradient(135deg, #2c105e, #4b006e);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
 }
 
+/* General Content Styles */
+.woocommerce-MyAccount-content p, .woocommerce-MyAccount-content address {
+    line-height: 1.8;
+    color: var(--muted);
+}
+
+.woocommerce-MyAccount-content a {
+    color: #ff4fa5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.woocommerce-MyAccount-content a:hover {
+    color: #ff94c8;
+}
+
+html.dark .woocommerce-MyAccount-content p,
+html.dark .woocommerce-MyAccount-content address,
+html.dark .woocommerce-MyAccount-navigation li a {
+    color: #cfc0cc;
+}
+
+/* Dashboard Welcome Card */
 .lumipuchi-welcome-card {
     background: var(--accent);
-    background-color: rgba(255, 255, 255, 0.05);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: var(--radius-lg);
     margin-bottom: 2rem;
-    border: 1px solid transparent;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.15);
+}
+
+html.dark .lumipuchi-welcome-card {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 20px rgba(255, 105, 181, 0.15);
 }
 
 .lumipuchi-welcome-card h2 {
@@ -996,81 +1023,57 @@ html.light .woocommerce-account .woocommerce-MyAccount-content {
     margin-bottom: 0.5rem;
 }
 
+html.dark .lumipuchi-welcome-card h2 { color: #f8e4f1; }
+
 .lumipuchi-welcome-card p {
     color: var(--muted);
     font-size: 1rem;
     margin: 0;
 }
 
-.woocommerce-MyAccount-content p {
-    line-height: 1.8;
-    color: var(--text);
-    color: #cfc0cc;
-}
+html.dark .lumipuchi-welcome-card p { color: #cfc0cc; }
 
-.woocommerce-MyAccount-content a {
-    color: var(--primary);
-    color: #ff6fb5;
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.woocommerce-MyAccount-content a:hover {
-    color: var(--primary-2);
-    color: #ffa6d0;
-}
-
-/*
-* My Account - Orders Tab Styles
-* --------------------------------------------------
-*/
-html.dark .woocommerce-account .woocommerce-MyAccount-content {
-    background: linear-gradient(135deg, #20102d, #2e1840);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
-    box-shadow: 0 0 20px rgba(255, 111, 181, 0.1);
-    border-left: none;
-}
-
-/* "No orders" message styling */
+/* Orders & Addresses Empty State */
 .woocommerce-account .woocommerce-info {
     border-top-color: var(--primary);
     background-color: var(--accent);
     text-align: center;
     padding: 2rem;
+    border-radius: var(--radius-lg);
 }
 
 html.dark .woocommerce-account .woocommerce-info {
     background: transparent;
     border: none;
     color: #f8e4f1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 200px;
+    text-align: center;
+    padding: 3rem;
 }
 
-/* "Browse products" button styling */
-.woocommerce-account .woocommerce-info .button {
-    background-color: #ff6fb5;
+.woocommerce-account .woocommerce-info::before {
+    display: none; /* Hide default icon */
+}
+
+.woocommerce-account .woocommerce-info .button,
+.woocommerce-account button.button {
+    background-color: #ff4fa5;
     color: #fff;
     border-radius: 999px;
     padding: 0.75rem 1.6rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 79, 165, 0.2);
 }
 
-.woocommerce-account .woocommerce-info .button:hover {
+.woocommerce-account .woocommerce-info .button:hover,
+.woocommerce-account button.button:hover {
     background-color: #ff94c8;
-    box-shadow: 0 0 10px rgba(255, 111, 181, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 111, 181, 0.4);
+    transform: translateY(-2px);
 }
 
-/*
-* My Account - Addresses Tab Styles
-* --------------------------------------------------
-*/
+/* Addresses Page Layout */
 .woocommerce-account .woocommerce-Addresses {
     display: flex;
     gap: 2rem;
@@ -1078,15 +1081,12 @@ html.dark .woocommerce-account .woocommerce-info {
 
 .woocommerce-account .woocommerce-Address-col {
     flex: 1;
-    background: var(--accent);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow-1);
 }
 
 html.dark .woocommerce-account .woocommerce-Address-col {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 2rem;
+    border-radius: 12px;
 }
 
 .woocommerce-Address-title {
@@ -1096,11 +1096,7 @@ html.dark .woocommerce-account .woocommerce-Address-col {
     margin-bottom: 1rem;
 }
 
-.woocommerce-Address-title h3 {
-    color: var(--text);
-}
-
-html.dark .woocommerce-Address-title h3 {
+html.dark .woocommerce-Address-title h3, html.dark .woocommerce-MyAccount-content h3 {
     color: #f8e4f1;
 }
 
@@ -1111,21 +1107,15 @@ html.dark .woocommerce-Address-title h3 {
     text-decoration: none;
 }
 
-.woocommerce-Address address {
-    color: var(--muted);
-    font-style: normal;
-    line-height: 1.7;
-}
-
-/* Form Styling (for editing addresses) */
-.woocommerce-account form.edit-address .form-row {
+/* Form Styling (Addresses & Account Details) */
+.woocommerce-account form .form-row {
     margin-bottom: 1.5rem;
 }
 
 .woocommerce-account form .form-row label {
     font-weight: 600;
     color: var(--text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     display: block;
 }
 
@@ -1133,45 +1123,44 @@ html.dark .woocommerce-account form .form-row label {
     color: #cfc0cc;
 }
 
-.woocommerce-account form .form-row input.input-text {
+.woocommerce-account form .form-row input.input-text,
+.woocommerce-account form .form-row textarea {
     width: 100%;
     padding: 0.8rem 1rem;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    background-color: #fff;
+    border: 1px solid var(--accent);
+    background-color: var(--surface);
     color: var(--text);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-html.dark .woocommerce-account form .form-row input.input-text {
+html.dark .woocommerce-account form .form-row input.input-text,
+html.dark .woocommerce-account form .form-row textarea {
     background-color: rgba(0,0,0,0.2);
     border-color: rgba(255,255,255,0.2);
     color: #f3e9ef;
 }
 
-.woocommerce-account form .form-row input.input-text:focus {
+.woocommerce-account form .form-row input.input-text::placeholder {
+    color: #ccc;
+}
+
+html.dark .woocommerce-account form .form-row input.input-text::placeholder {
+    color: #666;
+}
+
+.woocommerce-account form .form-row input.input-text:focus,
+.woocommerce-account form .form-row textarea:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(255, 111, 181, 0.2);
+    box-shadow: 0 0 0 3px rgba(255, 79, 165, 0.2);
     outline: none;
 }
 
-@media (max-width: 768px) {
-    .woocommerce-account .woocommerce-Addresses {
-        flex-direction: column;
-    }
-}
 /* Dark mode specific text colors */
 html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
     color: #f8e4f1;
 }
 
-html.dark .woocommerce-MyAccount-content p,
-html.dark .woocommerce-MyAccount-navigation li a {
-    color: #cfc0cc;
-}
-html.dark .woocommerce-MyAccount-navigation li.is-active a {
-    color: #ff6fb5;
-}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .woocommerce-account .woocommerce {
@@ -1186,7 +1175,76 @@ html.dark .woocommerce-MyAccount-navigation li.is-active a {
   }
 
   .woocommerce-account .woocommerce-MyAccount-content {
-    padding-left: 0;
-    border-left: none;
+    padding: 1.5rem;
   }
+
+  .woocommerce-account .woocommerce-Addresses {
+    flex-direction: column;
+  }
+}
+
+/*
+* My Account - Orders Table Styles
+* --------------------------------------------------
+*/
+.woocommerce-orders-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem; /* Creates the card effect */
+}
+
+.woocommerce-orders-table thead {
+    display: none; /* Hide the default header, the data is self-explanatory */
+}
+
+.woocommerce-orders-table tbody tr {
+    background-color: var(--accent);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow-1);
+}
+
+html.dark .woocommerce-orders-table tbody tr {
+    background-color: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.woocommerce-orders-table tbody tr:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-2);
+}
+
+html.dark .woocommerce-orders-table tbody tr:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.woocommerce-orders-table__cell {
+    padding: 1.25rem 1.5rem;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.woocommerce-orders-table__cell:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    text-align: left;
+}
+
+.woocommerce-orders-table__cell:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    text-align: right;
+}
+
+.woocommerce-orders-table__cell-order-number a {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+html.dark .woocommerce-orders-table__cell-order-number a {
+    color: #ff6fb5;
+}
+
+.woocommerce-orders-table__cell-order-actions .button {
+    margin: 0;
 }
