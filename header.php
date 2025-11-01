@@ -19,20 +19,25 @@
       <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">lumipuchi</a>
       <span class="logo-tagline">handpicked kawaii items</span>
     </div>
-    <ul class="nav-links"></ul>
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'container' => false,
+        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'menu_class' => 'nav-links',
+    ));
+    ?>
     <div class="nav-actions">
       <div class="search-container">
-        <input type="search" id="search-input" class="search-input" placeholder="Search products...">
-        <button id="search-btn" class="nav-btn" aria-label="Search">
-          <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </button>
+        <?php get_search_form(); ?>
       </div>
-      <button id="cart-btn" class="nav-btn" aria-label="View cart">
+      <a href="<?php echo esc_url(wc_get_cart_url()); ?>" id="cart-btn" class="nav-btn" aria-label="View cart">
         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39A2 2 0 0 0 9.65 16h9.7a2 2 0 0 0 1.97-1.61L23 6H6"/>
         </svg>
-      </button>
+        <span id="cart-count" class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+      </a>
       <button id="theme-toggle" class="nav-btn" aria-label="Toggle dark mode">
         <svg id="theme-icon" class="nav-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
           <path d="M21.64 13a9 9 0 1 1-9-11 7 7 0 0 0 9 11z"/>
