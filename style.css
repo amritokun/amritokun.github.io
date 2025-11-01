@@ -1180,6 +1180,122 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 }
 
 /*
+* Responsive Layout Rules
+* --------------------------------------------------
+*/
+
+/* 📱 Mobile (<600px) - Most styles are mobile-first, but here are specific overrides */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px; /* Base font size for mobile */
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .site-header {
+    padding: 0.75rem 1rem;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .logo-wrapper {
+    flex-basis: 100%;
+    order: -1; /* Move logo to the top on its own line */
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  html.dark .logo-wrapper {
+    border-bottom-color: rgba(255,255,255,0.1);
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links for an icon-based approach */
+  }
+
+  .nav-actions {
+    margin-left: 0;
+    flex-grow: 1;
+    justify-content: space-around;
+  }
+
+  .hero {
+    padding: 4rem 1rem 3rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .btn,
+  .cta-btn,
+  .woocommerce-account .woocommerce-info .button,
+  .woocommerce-account button.button {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Performance: Remove heavy shadows on mobile */
+  .card, .btn, .cta-btn {
+    box-shadow: none;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-1); /* Restore a light shadow on hover */
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section h3::after {
+    margin: 0 auto;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+}
+
+/* 💻 Tablet (601px - 1024px) - Uses existing 768px breakpoint */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+  .nav-links {
+    display: none; /* Keep nav icon-based for compactness */
+  }
+}
+
+/* 📺 Smart TV (>1920px) */
+@media (min-width: 1921px) {
+  body {
+    font-size: 120%; /* Increase all text sizes */
+  }
+
+  .btn, .cta-btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* Add strong focus outline glow for remote navigation */
+  a:focus,
+  button:focus,
+  input:focus {
+    outline: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(255, 79, 165, 0.6);
+  }
+}
+
+/*
 * My Account - Orders Table Styles
 * --------------------------------------------------
 */
