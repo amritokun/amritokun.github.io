@@ -61,8 +61,11 @@ body {
 
 /* dark mode */
 html.dark body {
-  background: linear-gradient(135deg, #1a0823, #2a103a);
+  /* Restoring a dynamic gradient for a more premium feel */
+  background: radial-gradient(ellipse at 50% 50%, #0f0810 0%, #0c0610 40%, #0a050a 80%, #070407 100%);
   background-attachment: fixed;
+  background-size: 200% 200%;
+  animation: gradientShift 30s ease infinite;
 }
 
 /* floating cosmic glows */
@@ -112,26 +115,26 @@ html.dark body::before {
 /* header */
 .site-header {
   background: transparent;
-  padding: 1rem 2rem;
-  box-shadow: none;
+  padding: 0.75rem 2rem; /* Adjusted padding for better vertical alignment */
   position: sticky; /* Use 'fixed' if you want it to always be on top, 'sticky' is generally better */
   top: 0;
   z-index: 1000;
   background: var(--glass);
   -webkit-backdrop-filter: blur(10px) saturate(120%);
   backdrop-filter: blur(10px) saturate(120%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 2rem; /* Adds space between the header and the content below */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05); /* Added subtle drop shadow */
 }
 
 nav {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between; /* Pushes nav-links and nav-actions to the sides */
   align-items: center; 
-  gap: 1rem;
   position: relative; /* Needed for absolute positioning of the logo */
+  min-height: 50px; /* Ensures consistent height */
 }
 
 .logo-wrapper {
@@ -139,6 +142,10 @@ nav {
   flex-direction: column;
   align-items: center;
   line-height: 1;
+  position: absolute; /* Center the logo absolutely */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .logo {
@@ -172,7 +179,7 @@ nav {
 .nav-links {
   list-style: none;
   display: flex;
-  margin: 0 auto; /* Center the nav links */
+  margin: 0; /* Let justify-content handle spacing */
   align-items: center;
   gap: 1.2rem;
 }
@@ -207,7 +214,7 @@ nav {
 
 .nav-actions {
   display: flex;
-  margin-left: auto;
+  /* margin-left: auto; is no longer needed with space-between */
   gap: 0.75rem;
 }
 
@@ -774,11 +781,6 @@ html.dark #theme-icon {
 .footer-links {
   list-style: none;
   padding: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: flex-start;
   display: grid;
   gap: 1rem;
 }
@@ -1211,20 +1213,21 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   }  
 
   .site-header nav {
-    flex-wrap: wrap;
     justify-content: space-between;
+    min-height: 0; /* Allow height to be natural, using 0 for better compatibility */
   }
 
   .logo-wrapper {
-    flex-basis: 100%;
-    order: -1; /* Move logo to the top on its own line */
+    position: static; /* Revert absolute positioning */
+    transform: none; /* Reset transform */
+    width: 100%;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--accent);
     margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--accent); /* Use theme variable for consistency */
   }
 
   html.dark .logo-wrapper {
-    border-bottom-color: rgba(255,255,255,0.1);
+    border-bottom-color: rgba(255,255,255,0.05); /* Soften the dark mode separator */
   }
 
   .nav-links {
@@ -1232,9 +1235,8 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   }
 
   .nav-actions {
-    margin-left: 0;
-    flex-grow: 1;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .hero {
