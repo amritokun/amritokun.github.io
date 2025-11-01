@@ -19,14 +19,10 @@
       <a href="<?php echo esc_url(home_url('/')); ?>" class="logo">lumipuchi</a>
       <span class="logo-tagline">handpicked kawaii items</span>
     </div>
-    <?php
-    wp_nav_menu(array(
-        'theme_location' => 'primary',
-        'container' => false,
-        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-        'menu_class' => 'nav-links',
-    ));
-    ?>
+    <ul class="nav-links">
+        <li><a href="<?php echo esc_url(home_url('/collections')); ?>">Collections</a></li>
+        <li><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact Us</a></li>
+    </ul>
     <div class="nav-actions">
       <div class="search-container">
         <?php get_search_form(); ?>
