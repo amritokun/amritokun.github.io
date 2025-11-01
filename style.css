@@ -545,7 +545,6 @@ html.dark .cart-panel {
   gap: 1rem;
   margin-bottom: 1rem;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary) transparent;
 }
 
 /* Webkit scrollbar styling for cross-browser compatibility */
@@ -560,6 +559,7 @@ html.dark .cart-panel {
 .cart-items::-webkit-scrollbar-thumb {
   background-color: var(--primary);
   border-radius: 10px;
+  scrollbar-color: var(--primary) transparent;
   border: 2px solid var(--surface);
 }
 
@@ -974,10 +974,9 @@ html.dark .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-acti
 }
 
 html.dark .woocommerce-account .woocommerce-MyAccount-content {
-  background: linear-gradient(135deg, #2c105e, #4b006e);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
 }
 
 /* General Content Styles */
@@ -1043,24 +1042,19 @@ html.dark .lumipuchi-welcome-card p { color: #cfc0cc; }
 
 /* Orders & Addresses Empty State */
 .woocommerce-account .woocommerce-info {
-  border-top-color: var(--primary);
-  background-color: var(--accent);
+  border-top-color: transparent;
+  background-color: transparent;
   text-align: center;
-  padding: 2rem;
-  border-radius: var(--radius-lg);
-}
+  padding: 2rem; }
 
 html.dark .woocommerce-account .woocommerce-info {
-  background: linear-gradient(135deg, rgba(44, 16, 94, 0.5), rgba(75, 0, 110, 0.5));
-  border: 1px solid #ff4fa5;
-  color: #f8e4f1;
+  background: transparent;
+  border: none;
   text-align: center;
-  padding: 3rem;
-}
+  padding: 3rem; }
 
 .woocommerce-account .woocommerce-info::before {
-  display: none; /* Hide default icon */
-}
+  display: none; }
 
 .woocommerce-account .woocommerce-info .button,
 .woocommerce-account button.button {
@@ -1205,7 +1199,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: var(--shadow-1);
 }
-
+  
 html.dark .woocommerce-orders-table tbody tr {
   background: transparent;
   border: none;
