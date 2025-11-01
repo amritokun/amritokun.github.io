@@ -28,14 +28,3 @@ function lumipuchi_enqueue_scripts() {
     wp_add_inline_script('lumipuchi-theme', $init_script);
 }
 add_action('wp_enqueue_scripts', 'lumipuchi_enqueue_scripts');
-
-function lumipuchi_cart_link_fragment($fragments) {
-    ob_start();
-    ?>
-    <span id="cart-count" class="cart-count"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
-    <?php
-    $fragments['span#cart-count'] = ob_get_clean();
-    return $fragments;
-}
-add_filter('woocommerce_add_to_cart_fragments', 'lumipuchi_cart_link_fragment');
-?>
