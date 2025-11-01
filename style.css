@@ -114,11 +114,13 @@ html.dark body::before {
   background: transparent;
   padding: 1rem 2rem;
   box-shadow: none;
-  position: sticky;
+  position: sticky; /* Use 'fixed' if you want it to always be on top, 'sticky' is generally better */
   top: 0;
   z-index: 1000;
-  -webkit-backdrop-filter: blur(6px) saturate(120%);
-  backdrop-filter: blur(6px) saturate(120%);
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(10px) saturate(120%);
+  backdrop-filter: blur(10px) saturate(120%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 nav {
@@ -126,7 +128,7 @@ nav {
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: center; 
   gap: 1rem;
   position: relative; /* Needed for absolute positioning of the logo */
 }
@@ -138,22 +140,6 @@ nav {
   line-height: 1;
 }
 
-.logo::before,
-.logo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(120deg, transparent, var(--primary), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .logo {
   font-family: 'Playfair Display', serif;
   font-weight: 600;
@@ -162,14 +148,16 @@ nav {
   letter-spacing: 0.1em;
   padding: 0.5rem 0.75rem;
   border-radius: var(--radius-lg);
-  text-transform: none;
-  background: linear-gradient(120deg, transparent, var(--glass), transparent);
+  text-transform: none; 
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative; /* For pseudo-elements */
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--primary);
 }
 
-.logo:hover::after {
+.logo:hover {
+  text-shadow: 0 0 16px var(--primary);
   opacity: 1;
 }
 .logo-tagline {
@@ -397,6 +385,13 @@ html.dark .nav-icon {
   align-items: start;
   padding: 4rem 0 6rem;
   position: relative;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 .product-grid::before {
@@ -1158,6 +1153,18 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   color: #f8e4f1;
 }
 
+/* General Two-Column Layout for Pages/Archives */
+.content-area {
+  flex: 1;
+  min-width: 0; /* Prevents content from overflowing flex container */
+}
+
+.sidebar {
+  flex: 0 0 280px; /* Sidebar width */
+  margin-left: 2.5rem;
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .woocommerce-account .woocommerce {
@@ -1177,6 +1184,12 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   .woocommerce-account .woocommerce-Addresses {
      flex-direction: column;
   }
+
+  .sidebar {
+    display: none; /* Hide sidebar on tablet and smaller */
+  }
+
+  .page-wrapper { flex-direction: column; }
 }
 
 /*
@@ -1184,21 +1197,21 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 * --------------------------------------------------
 */
 
-/* 📱 Mobile (<600px) - Most styles are mobile-first, but here are specific overrides */
+/* 📱 Mobile (<600px) */
 @media (max-width: 600px) {
   body {
-    font-size: 15px; /* Base font size for mobile */
+    font-size: 16px; /* Base font size for mobile */
   }
 
   .container {
     padding: 0 1rem;
   }
-
+  
   .site-header {
     padding: 0.75rem 1rem;
-  }
+  }  
 
-  nav {
+  .site-header nav {
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -1216,7 +1229,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   }
 
   .nav-links {
-    display: none; /* Hide nav links for an icon-based approach */
+    display: none; /* Hide nav links, replaced by menu icons/FAB */
   }
 
   .nav-actions {
@@ -1244,7 +1257,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 
   /* Performance: Remove heavy shadows on mobile */
   .card, .btn, .cta-btn {
-    box-shadow: none;
+    box-shadow: 0 4px 12px rgba(35,20,30,0.06); /* Lightweight shadow */
   }
 
   .card:hover {
@@ -1265,22 +1278,31 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   }
 }
 
-/* 💻 Tablet (601px - 1024px) - Uses existing 768px breakpoint */
+/* 💻 Tablet (601px - 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
   .container {
-    padding: 0 20px;
+    padding: 0 20px; /* Internal padding for tablet */
   }
+
   .nav-links {
-    display: none; /* Keep nav icon-based for compactness */
+    gap: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
   }
 }
 
-/* 📺 Smart TV (>1920px) */
-@media (min-width: 1921px) {
+/* 📺 Smart TV & Ultra-wide (>1920px) */
+@media (min-width: 1920px) {
   body {
-    font-size: 120%; /* Increase all text sizes */
+    font-size: 1.2rem; /* Scale up base font size by 20% */
   }
 
+  .container {
+    max-width: 1400px; /* Allow content to spread a bit more */
+  }
   .btn, .cta-btn {
     padding: 1.2rem 2.5rem;
     font-size: 1.1rem;
@@ -1291,7 +1313,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
   button:focus,
   input:focus {
     outline: 3px solid var(--primary);
-    box-shadow: 0 0 20px rgba(255, 79, 165, 0.6);
+    box-shadow: 0 0 20px var(--primary);
   }
 }
 
