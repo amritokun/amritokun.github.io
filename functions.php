@@ -75,3 +75,20 @@ if (!function_exists('lumipuchi_add_floating_dashboard')) {
     }
     add_action('wp_footer', 'lumipuchi_add_floating_dashboard');
 }
+
+if (!function_exists('lumipuchi_change_display_name_label')) {
+    /**
+     * Change the "Display name" label to "Username" on the My Account page.
+     *
+     * @param array $args The original field arguments.
+     * @param string $key The field key.
+     * @return array The modified field arguments.
+     */
+    function lumipuchi_change_display_name_label($args, $key) {
+        if ('account_display_name' === $key) {
+            $args['label'] = __('Username', 'lumipuchi');
+        }
+        return $args;
+    }
+    add_filter('woocommerce_form_field_args', 'lumipuchi_change_display_name_label', 10, 2);
+}
