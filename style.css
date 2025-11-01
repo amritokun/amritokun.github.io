@@ -121,6 +121,7 @@ html.dark body::before {
   -webkit-backdrop-filter: blur(10px) saturate(120%);
   backdrop-filter: blur(10px) saturate(120%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem; /* Adds space between the header and the content below */
 }
 
 nav {
@@ -152,12 +153,10 @@ nav {
   transition: all 0.3s ease;
   text-decoration: none;
   position: relative; /* For pseudo-elements */
-  color: var(--primary);
-  text-shadow: 0 0 8px var(--primary);
+  color: var(--primary); 
 }
 
 .logo:hover {
-  text-shadow: 0 0 16px var(--primary);
   opacity: 1;
 }
 .logo-tagline {
