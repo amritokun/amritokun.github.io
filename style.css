@@ -61,10 +61,8 @@ body {
 
 /* dark mode */
 html.dark body {
-  background: radial-gradient(ellipse at 50% 50%, #0f0810 0%, #0c0610 40%, #0a050a 80%, #070407 100%);
+  background: linear-gradient(135deg, #1a0823, #2a103a);
   background-attachment: fixed;
-  background-size: 200% 200%;
-  animation: gradientShift 30s ease infinite;
 }
 
 /* floating cosmic glows */
@@ -915,7 +913,7 @@ html.light .woocommerce-account .woocommerce {
     background: linear-gradient(135deg, #fff6f8, #fdf4fa);
 }
 
-html.dark .woocommerce-account .woocommerce { background: linear-gradient(135deg, #2b0e37, #1c1024); }
+html.dark .woocommerce-account .woocommerce { background: transparent; box-shadow: none; }
 
 .woocommerce-account .woocommerce-MyAccount-navigation {
   flex: 0 0 220px; /* Set a fixed width for the navigation */
@@ -981,10 +979,14 @@ html.light .woocommerce-account .woocommerce-MyAccount-content {
 
 .lumipuchi-welcome-card {
     background: var(--accent);
+    background-color: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
     padding: 2rem;
     border-radius: var(--radius-lg);
     margin-bottom: 2rem;
     border: 1px solid transparent;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.15);
 }
 
 .lumipuchi-welcome-card h2 {
@@ -1003,10 +1005,12 @@ html.light .woocommerce-account .woocommerce-MyAccount-content {
 .woocommerce-MyAccount-content p {
     line-height: 1.8;
     color: var(--text);
+    color: #cfc0cc;
 }
 
 .woocommerce-MyAccount-content a {
     color: var(--primary);
+    color: #ff6fb5;
     font-weight: 600;
     text-decoration: none;
     transition: color 0.2s;
@@ -1014,8 +1018,21 @@ html.light .woocommerce-account .woocommerce-MyAccount-content {
 
 .woocommerce-MyAccount-content a:hover {
     color: var(--primary-2);
+    color: #ffa6d0;
 }
 
+/* Dark mode specific text colors */
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+    color: #f8e4f1;
+}
+
+html.dark .woocommerce-MyAccount-content p,
+html.dark .woocommerce-MyAccount-navigation li a {
+    color: #cfc0cc;
+}
+html.dark .woocommerce-MyAccount-navigation li.is-active a {
+    color: #ff6fb5;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .woocommerce-account .woocommerce {
