@@ -36,6 +36,17 @@ function lumipuchi_enqueue_scripts() {
     // Enqueue custom styles and scripts for premium features
     wp_enqueue_style('lumipuchi-premium-features', get_template_directory_uri() . '/assets/css/premium-features.css');
     wp_enqueue_script('lumipuchi-premium-features', get_template_directory_uri() . '/assets/js/premium-features.js', array('jquery', 'gsap-js', 'aos-js'), '1.0', true);
+
+    // Initialize scripts
+    $init_script = "
+        document.addEventListener('DOMContentLoaded', () => { 
+            if(typeof initTheme === 'function') initTheme(); 
+            if(typeof initSearch === 'function') initSearch(); 
+            if(typeof initCart === 'function') initCart(); 
+            if(typeof initPremiumFeatures === 'function') initPremiumFeatures(); 
+        });
+    ";
+    wp_add_inline_script('lumipuchi-theme', $init_script);
 }
 add_action('wp_enqueue_scripts', 'lumipuchi_enqueue_scripts');
 
