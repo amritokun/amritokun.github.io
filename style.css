@@ -1160,6 +1160,7 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 .sidebar {
   flex: 0 0 280px; /* Sidebar width */
   margin-left: 2.5rem;
+  display: none; /* Hide the sidebar */
 }
 
 
