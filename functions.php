@@ -92,3 +92,13 @@ if (!function_exists('lumipuchi_change_display_name_label')) {
     }
     add_filter('woocommerce_form_field_args', 'lumipuchi_change_display_name_label', 10, 2);
 }
+
+if (!function_exists('lumipuchi_add_delivery_info')) {
+    /**
+     * Adds custom delivery information to the single product summary.
+     */
+    function lumipuchi_add_delivery_info() {
+        echo '<div class="lumipuchi-delivery-info">Ships within 24 hours ✨ | Free shipping over ₹499</div>';
+    }
+    add_action('woocommerce_single_product_summary', 'lumipuchi_add_delivery_info', 25); // Hook after price/excerpt
+}
