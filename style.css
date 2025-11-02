@@ -937,10 +937,14 @@ html.light .woocommerce-account .woocommerce {
 .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
   background-color: var(--accent);
   color: var(--primary);
+  background-color: var(--accent); /* Light mode hover background */
+  color: var(--primary); /* Light mode hover text */
   transform: translateY(-2px);
 }
 
 html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a,
+html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a:hover {
   background-color: rgba(255, 79, 165, 0.15);
   color: #ff6fb5;
 }
@@ -1969,4 +1973,5 @@ html.dark .woocommerce-tabs .panel { border-radius: 0 20px 20px 20px; }
     .woocommerce-cart .woocommerce {
         grid-template-columns: 1fr;
     }
+  }
 }
