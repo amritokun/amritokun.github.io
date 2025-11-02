@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
   <section class="hero">
-    <h1>lumipuchi.</h1>
+    <h1>lumipuchi</h1>
     <p>handpicked kawaii items and cozy decor to brighten your space.</p>
   </section>
 
