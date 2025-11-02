@@ -931,12 +931,18 @@ html.light .woocommerce-account .woocommerce {
 .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
   color: #ff4fa5;
   background-color: var(--accent);
+  color: var(--primary);
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
   background-color: var(--accent);
   color: var(--primary);
   transform: translateY(-2px);
+}
+
+html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
+  background-color: rgba(255, 79, 165, 0.15);
+  color: #ff6fb5;
 }
 
 html.dark .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
