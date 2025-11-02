@@ -942,7 +942,6 @@ html.light .woocommerce-account .woocommerce {
   transform: translateY(-2px);
 }
 
-html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
 html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a,
 html.dark .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a:hover {
   background-color: rgba(255, 79, 165, 0.15);
@@ -1400,19 +1399,6 @@ html.dark .woocommerce-orders-table__cell-order-number a {
 * Light/Dark Mode Product Page Theme
 * --------------------------------------------------
 */
-.single-product body {
-    background-color: #fce9f9;
-    color: #3c0a63;
-}
-
-html.dark .single-product body {
-    background-color: #2d0039;
-    color: #ffe6fa;
-}
-
-html.dark .single-product .product_title { color: #fff !important; }
-html.dark .single-product p.price { color: #ff8fd6 !important; }
-
 /*
 * Single Product Page Styles
 * --------------------------------------------------
@@ -1552,7 +1538,7 @@ html.dark .single-product div.product {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #3c0a63; /* Lavender text */
+    color: var(--text);
     line-height: 1.2;
     margin-bottom: 1rem;
 }
@@ -1564,7 +1550,7 @@ html.dark .single-product div.product {
 .single-product p.price {
     font-size: 2rem;
     font-weight: 800;
-    color: #ff4fa5;
+    color: var(--primary);
     margin-bottom: 1.5rem;
 }
 
@@ -1729,50 +1715,11 @@ html.dark .lumipuchi-delivery-info {
 }
 
 html.dark .woocommerce-tabs ul.tabs { border-bottom-color: rgba(255,255,255,0.1); }
-html.dark .woocommerce-tabs ul.tabs li.active a { border-color: rgba(255,255,255,0.1) !important; }
 html.dark .woocommerce-tabs ul.tabs li.active a {
     border-color: rgba(255,255,255,0.1) !important;
 }
 html.dark .woocommerce-tabs .panel {
     color: #e2d8e8; /* Lighter color for dark mode readability */
-}
-html.dark .woocommerce-tabs .panel { border-radius: 0 20px 20px 20px; }
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .single-product div.product {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        margin-top: 1rem;
-        padding: 1.5rem;
-    }
-    
-    .woocommerce-breadcrumb {
-        padding: 0 1.5rem;
-        margin-top: 0;
-        margin-bottom: 1rem;
-    }
-
-    .single-product .product_title {
-        font-size: 2rem;
-        text-align: center;
-    }
-
-    .single-product .summary {
-        text-align: center;
-        align-items: center;
-    }
-
-    .single-product form.cart {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .single-product .price {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
 /*
@@ -1973,5 +1920,4 @@ html.dark .woocommerce-tabs .panel { border-radius: 0 20px 20px 20px; }
     .woocommerce-cart .woocommerce {
         grid-template-columns: 1fr;
     }
-  }
 }
