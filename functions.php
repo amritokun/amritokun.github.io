@@ -102,3 +102,15 @@ if (!function_exists('lumipuchi_add_delivery_info')) {
     }
     add_action('woocommerce_single_product_summary', 'lumipuchi_add_delivery_info', 25); // Hook after price/excerpt
 }
+
+if (!function_exists('lumipuchi_hide_admin_bar')) {
+    /**
+     * Hides the admin bar on the front-end for non-admins.
+     */
+    function lumipuchi_hide_admin_bar() {
+        if (!current_user_can('manage_options')) {
+            add_filter('show_admin_bar', '__return_false');
+        }
+    }
+    add_action('after_setup_theme', 'lumipuchi_hide_admin_bar');
+}
