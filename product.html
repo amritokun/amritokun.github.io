@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lumipuchi | Cosmic Store</title>
+    <title>Cosmic Ring | Lumipuchi</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +16,20 @@
     <!-- Main Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="single-product">
     <!-- Header -->
     <header class="site-header">
         <nav>
             <div class="logo-wrapper">
-                <a href="#" class="logo">Lumipuchi</a>
+                <a href="index.html" class="logo">Lumipuchi</a>
                 <span class="logo-tagline">COSMIC CURIOSITIES</span>
             </div>
 
             <ul class="nav-links">
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#blog">Journal</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#blog">Journal</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
 
             <div class="nav-actions">
@@ -51,68 +51,51 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero" data-aos="fade-up">
-        <h1>Find Your Sparkle</h1>
-        <p>Curated collection of cosmic accessories for the dreamer in you.</p>
-        <a href="#shop" class="cta-btn">Explore Collection</a>
-    </section>
-
     <!-- Main Content -->
-    <main class="container">
-        
-        <!-- Banner Widget (Static) -->
-        <div class="lumipuchi-banner-widget" data-aos="zoom-in">
-            <h2 class="widget-title">New Arrivals</h2>
-            <p>Check out the latest stardust collection dropping this week!</p>
+    <div class="container">
+        <div class="woocommerce-breadcrumb">
+            <a href="index.html">Home</a> <span class="delimiter">/</span> <a href="index.html#shop">Accessories</a> <span class="delimiter">/</span> Cosmic Ring
         </div>
 
-        <!-- Product Grid -->
-        <div id="shop" class="product-grid">
-            <!-- Product 1 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <a href="product.html"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80" alt="Cosmic Ring"></a>
-                <div class="card-content">
-                    <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Cosmic Ring</h3></a>
-                    <p>Starry silver finish</p>
-                    <div class="price">$45.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+        <div class="product" data-aos="fade-up">
+            <!-- Gallery -->
+            <div class="woocommerce-product-gallery">
+                <div class="woocommerce-product-gallery__wrapper">
+                    <div class="woocommerce-product-gallery__image">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80" alt="Cosmic Ring">
+                    </div>
                 </div>
             </div>
 
-            <!-- Product 2 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <a href="product.html"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" alt="Nebula Necklace"></a>
-                <div class="card-content">
-                    <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Nebula Necklace</h3></a>
-                    <p>Captured galaxy glass</p>
-                    <div class="price">$62.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+            <!-- Summary -->
+            <div class="summary entry-summary">
+                <h1 class="product_title entry-title">Cosmic Ring</h1>
+                <div class="woocommerce-product-rating">
+                    ⭐⭐⭐⭐⭐ (12 reviews)
                 </div>
-            </div>
+                <p class="price"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>45.00</bdi></span></p>
+                
+                <div class="woocommerce-product-details__short-description">
+                    <p>A stunning silver ring that captures the essence of the night sky. Perfect for dreamers and stargazers alike. Features a durable finish and adjustable sizing.</p>
+                </div>
 
-            <!-- Product 3 -->
-            <div class="card" data-aos="fade-up" data-aos-delay="300">
-                <a href="product.html"><img src="https://images.unsplash.com/photo-1602751584552-8ba43d5c38f4?auto=format&fit=crop&w=600&q=80" alt="Lunar Earrings"></a>
-                <div class="card-content">
-                    <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Lunar Earrings</h3></a>
-                    <p>Crescent moon drops</p>
-                    <div class="price">$38.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
-                </div>
-            </div>
-             <!-- Product 4 -->
-             <div class="card" data-aos="fade-up" data-aos-delay="400">
-                <a href="product.html"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="Stardust Bracelet"></a>
-                <div class="card-content">
-                    <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Stardust Bracelet</h3></a>
-                    <p>Shimmering link chain</p>
-                    <div class="price">$55.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+                <div class="lumipuchi-delivery-info">Ships within 24 hours ✨ | Free shipping over $50</div>
+
+                <form class="cart">
+                    <div class="quantity">
+                        <input type="number" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" placeholder="" inputmode="numeric">
+                    </div>
+                    <button type="submit" name="add-to-cart" class="single_add_to_cart_button button alt add-to-cart">Add to cart</button>
+                </form>
+                
+                <button class="buy-now-button" onclick="window.location.href='cart.html'">Buy Now</button>
+
+                <div class="product_meta">
+                    <span class="posted_in">Category: <a href="#">Accessories</a></span>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
@@ -142,39 +125,21 @@
         </div>
     </footer>
 
-    <!-- Cart Modal -->
+    <!-- Cart Modal (Reused) -->
     <div class="cart-modal" id="cart-modal">
         <div class="cart-overlay" id="cart-overlay"></div>
         <div class="cart-panel">
             <div class="cart-header">
                 <h2>Your Bag</h2>
-                <button class="close-cart" id="close-cart" aria-label="Close Cart">
-                    <svg class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                </button>
+                <button class="close-cart" id="close-cart" aria-label="Close Cart"><svg class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
             </div>
             <div class="cart-items">
-                <!-- Empty state or JS populated items -->
-                <div class="cart-item">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=100&q=80" alt="Item">
-                    <div class="cart-item-info">
-                        <h4>Cosmic Ring</h4>
-                        <span>$45.00</span>
-                    </div>
-                    <button aria-label="Remove item">&times;</button>
-                </div>
+                <div class="cart-item"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=100&q=80" alt="Item"><div class="cart-item-info"><h4>Cosmic Ring</h4><span>$45.00</span></div><button aria-label="Remove item">&times;</button></div>
             </div>
-            <div class="cart-footer">
-                <span>Total</span>
-                <span class="cart-total">$45.00</span>
-            </div>
-            <div class="cart-actions">
-                <button class="clear-btn">Clear</button>
-                <button class="checkout-btn" onclick="window.location.href='cart.html'">Checkout</button>
-            </div>
+            <div class="cart-actions"><button class="checkout-btn" onclick="window.location.href='cart.html'">Checkout</button></div>
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script src="script.js"></script>
