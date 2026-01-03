@@ -256,6 +256,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Checkout Form Logic
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty! Please add items before checking out.');
+                return;
+            }
+
+            const btn = document.getElementById('place_order');
+            btn.innerText = 'Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                cart = [];
+                saveCart();
+                alert('Order placed successfully! ✨\nThank you for shopping with Lumipuchi.');
+                window.location.href = 'index.html';
+            }, 1500);
+        });
+    }
+
     // Initial Render
     renderCart();
 });

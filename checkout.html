@@ -43,26 +43,26 @@
                 <div class="col2-set" id="customer_details">
                     <div class="woocommerce-billing-fields">
                         <h3>Billing details</h3>
-                        <form class="woocommerce-account" onsubmit="event.preventDefault();">
+                        <form id="checkout-form" class="woocommerce-account">
                             <div class="form-row">
                                 <label for="billing_first_name">First name <span class="required">*</span></label>
-                                <input type="text" class="input-text" name="billing_first_name" id="billing_first_name">
+                                <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" required>
                             </div>
                             <div class="form-row">
                                 <label for="billing_last_name">Last name <span class="required">*</span></label>
-                                <input type="text" class="input-text" name="billing_last_name" id="billing_last_name">
+                                <input type="text" class="input-text" name="billing_last_name" id="billing_last_name" required>
                             </div>
                             <div class="form-row">
                                 <label for="billing_email">Email address <span class="required">*</span></label>
-                                <input type="email" class="input-text" name="billing_email" id="billing_email">
+                                <input type="email" class="input-text" name="billing_email" id="billing_email" required>
                             </div>
                             <div class="form-row">
                                 <label for="billing_address_1">Street address <span class="required">*</span></label>
-                                <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name">
+                                <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" required>
                             </div>
                             <div class="form-row">
                                 <label for="billing_city">Town / City <span class="required">*</span></label>
-                                <input type="text" class="input-text" name="billing_city" id="billing_city">
+                                <input type="text" class="input-text" name="billing_city" id="billing_city" required>
                             </div>
                         </form>
                     </div>
@@ -90,7 +90,7 @@
 
                     <div id="payment" class="woocommerce-checkout-payment">
                         <div class="place-order">
-                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Place order</button>
+                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order" form="checkout-form">Place order</button>
                         </div>
                     </div>
                 </div>
