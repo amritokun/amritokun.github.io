@@ -23,6 +23,13 @@ function lumipuchi_theme_setup() {
     add_theme_support('custom-logo');
     add_theme_support('align-wide');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
+    add_theme_support('custom-header', array(
+        'width'       => 1600,
+        'height'      => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => false,
+    ));
 
     // Register navigation menus
     register_nav_menus(array(
@@ -133,4 +140,30 @@ if (!function_exists('lumipuchi_hide_admin_bar')) {
         }
     }
     add_action('after_setup_theme', 'lumipuchi_hide_admin_bar');
+}
+
+// Register Shop Banner Widget Area
+function lumipuchi_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Shop Banner', 'lumipuchi' ),
+        'id'            => 'shop-banner',
+        'description'   => __( 'Appears above the product grid on shop pages. Great for announcements or hero images.', 'lumipuchi' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s lumipuchi-banner-widget">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'lumipuchi_widgets_init' );
+
+if (!function_exists('lumipuchi_display_shop_banner')) {
+    /**
+     * Display the Shop Banner widget area on shop/archive pages.
+     */
+    function lumipuchi_display_shop_banner() {
+        if ( ( is_shop() || is_product_category() ) && is_active_sidebar( 'shop-banner' ) ) {
+            dynamic_sidebar( 'shop-banner' );
+        }
+    }
+    add_action( 'woocommerce_before_shop_loop', 'lumipuchi_display_shop_banner', 15 );
 }
