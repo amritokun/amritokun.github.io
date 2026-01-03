@@ -34,13 +34,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Search Toggle Logic ---
     const searchBtn = document.getElementById('search-btn');
     const searchContainer = document.querySelector('.search-container');
+    const searchInput = document.querySelector('.search-input');
     
-    if (searchBtn && searchContainer) {
+    if (searchBtn && searchContainer && searchInput) {
         searchBtn.addEventListener('click', () => {
             searchContainer.classList.toggle('active');
             if (searchContainer.classList.contains('active')) {
-                document.querySelector('.search-input').focus();
+                searchInput.focus();
             }
+        });
+
+        // Live Search / Filter Logic (Replaces searchform.php)
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const productCards = document.querySelectorAll('.product-grid .card');
+            
+            productCards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                if (title.includes(searchTerm)) {
+                    card.style.display = ''; // Show
+                } else {
+                    card.style.display = 'none'; // Hide
+                }
+            });
         });
     }
 
@@ -55,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartTotalEl = document.querySelector('.cart-total');
     const clearCartBtn = document.querySelector('.clear-btn');
     const addToCartBtns = document.querySelectorAll('.add-to-cart');
+    const buyNowBtn = document.querySelector('.buy-now-button');
 
     // Open/Close Modal
     function openCart() {
@@ -83,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartItemsContainer) {
             cartItemsContainer.innerHTML = '';
             if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<div class="empty-cart-msg" style="text-align:center; padding: 2rem; color: var(--muted);">Your cart is empty ✨</div>';
+                cartItemsContainer.innerHTML = '<div class="empty-cart-msg">Your cart is empty ✨</div>';
             } else {
                 cart.forEach((item, index) => {
                     total += parseFloat(item.price) * item.qty;
@@ -115,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartTableBody) {
             cartTableBody.innerHTML = '';
             if (cart.length === 0) {
-                cartTableBody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding: 2rem;">Your cart is empty. <a href="index.html#shop">Go shopping!</a></td></tr>';
+                cartTableBody.innerHTML = '<tr><td colspan="6" class="empty-cart-cell">Your cart is empty. <a href="index.html#shop">Go shopping!</a></td></tr>';
             } else {
                 cart.forEach((item, index) => {
                     const row = document.createElement('tr');
@@ -125,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <a href="#" class="remove remove-item" data-index="${index}" aria-label="Remove this item">&times;</a>
                         </td>
                         <td class="product-thumbnail">
-                            <img src="${item.image}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt="" style="width:60px; border-radius:8px;">
+                            <img src="${item.image}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail cart-thumbnail" alt="">
                         </td>
                         <td class="product-name" data-title="Product">
                             <a href="#">${item.name}</a>
@@ -135,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </td>
                         <td class="product-quantity" data-title="Quantity">
                             <div class="quantity">
-                                <input type="number" class="input-text qty text" value="${item.qty}" readonly style="width:50px; text-align:center;">
+                                <input type="number" class="input-text qty text cart-qty-input" value="${item.qty}" readonly>
                             </div>
                         </td>
                         <td class="product-subtotal" data-title="Subtotal">
@@ -160,27 +177,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Helper: Add Item to Cart
+    function addItemToCart(btn) {
+        const product = {
+            id: btn.dataset.id,
+            name: btn.dataset.name,
+            price: btn.dataset.price,
+            image: btn.dataset.image,
+            qty: 1
+        };
+
+        // Check if exists
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+            existing.qty++;
+        } else {
+            cart.push(product);
+        }
+        saveCart();
+    }
+
     // Add to Cart Logic
     addToCartBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            
-            const product = {
-                id: btn.dataset.id,
-                name: btn.dataset.name,
-                price: btn.dataset.price,
-                image: btn.dataset.image,
-                qty: 1
-            };
-
-            // Check if exists
-            const existing = cart.find(item => item.id === product.id);
-            if (existing) {
-                existing.qty++;
-            } else {
-                cart.push(product);
-            }
-            saveCart();
+            addItemToCart(btn);
 
             // Animation
             const originalText = btn.innerText;
@@ -195,6 +216,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     });
+
+    // Buy Now Logic
+    if (buyNowBtn) {
+        buyNowBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            addItemToCart(buyNowBtn);
+            window.location.href = 'cart.html';
+        });
+    }
 
     // Clear Cart
     if (clearCartBtn) {

@@ -2003,3 +2003,40 @@ html.dark .lumipuchi-banner-widget {
   background: linear-gradient(135deg, #4a1a3d, #2d1225);
   box-shadow: 0 10px 30px rgba(255, 127, 179, 0.15);
 }
+
+/*
+* Utilities & Dynamic Classes
+* --------------------------------------------------
+*/
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.empty-cart-msg {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+}
+
+.single-product-cart {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.empty-cart-cell {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* JS Generated Elements */
+.cart-thumbnail {
+  width: 60px;
+  border-radius: 8px;
+}
+
+.cart-qty-input {
+  width: 50px;
+  text-align: center;
+}
