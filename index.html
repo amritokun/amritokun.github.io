@@ -76,7 +76,13 @@
                     <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Cosmic Ring</h3></a>
                     <p>Starry silver finish</p>
                     <div class="price">$45.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+                    <button class="btn add-to-cart" 
+                        data-id="1" 
+                        data-name="Cosmic Ring" 
+                        data-price="45.00" 
+                        data-image="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -87,7 +93,13 @@
                     <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Nebula Necklace</h3></a>
                     <p>Captured galaxy glass</p>
                     <div class="price">$62.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+                    <button class="btn add-to-cart" 
+                        data-id="2" 
+                        data-name="Nebula Necklace" 
+                        data-price="62.00" 
+                        data-image="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
 
@@ -98,7 +110,13 @@
                     <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Lunar Earrings</h3></a>
                     <p>Crescent moon drops</p>
                     <div class="price">$38.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+                    <button class="btn add-to-cart" 
+                        data-id="3" 
+                        data-name="Lunar Earrings" 
+                        data-price="38.00" 
+                        data-image="https://images.unsplash.com/photo-1602751584552-8ba43d5c38f4?auto=format&fit=crop&w=600&q=80">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
              <!-- Product 4 -->
@@ -108,7 +126,13 @@
                     <a href="product.html" style="text-decoration:none; color:inherit;"><h3>Stardust Bracelet</h3></a>
                     <p>Shimmering link chain</p>
                     <div class="price">$55.00</div>
-                    <button class="btn add-to-cart">Add to Cart</button>
+                    <button class="btn add-to-cart" 
+                        data-id="4" 
+                        data-name="Stardust Bracelet" 
+                        data-price="55.00" 
+                        data-image="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80">
+                        Add to Cart
+                    </button>
                 </div>
             </div>
         </div>
@@ -153,15 +177,8 @@
                 </button>
             </div>
             <div class="cart-items">
-                <!-- Empty state or JS populated items -->
-                <div class="cart-item">
-                    <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=100&q=80" alt="Item">
-                    <div class="cart-item-info">
-                        <h4>Cosmic Ring</h4>
-                        <span>$45.00</span>
-                    </div>
-                    <button aria-label="Remove item">&times;</button>
-                </div>
+                <!-- JS populated items will go here -->
+                <div class="empty-cart-msg" style="text-align:center; padding: 2rem; color: var(--muted);">Your cart is empty ✨</div>
             </div>
             <div class="cart-footer">
                 <span>Total</span>

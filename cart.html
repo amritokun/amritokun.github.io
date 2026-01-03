@@ -37,29 +37,8 @@
                 <div class="woocommerce-notices-wrapper"></div>
                 <form class="woocommerce-cart-form" action="#" method="post">
                     <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-                        <tbody>
-                            <tr class="woocommerce-cart-form__cart-item cart_item">
-                                <td class="product-remove">
-                                    <a href="#" class="remove" aria-label="Remove this item" data-product_id="1" data-product_sku="">&times;</a>
-                                </td>
-                                <td class="product-thumbnail">
-                                    <a href="product.html"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=150&q=80" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" alt=""></a>
-                                </td>
-                                <td class="product-name" data-title="Product">
-                                    <a href="product.html">Cosmic Ring</a>
-                                </td>
-                                <td class="product-price" data-title="Price">
-                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>45.00</bdi></span>
-                                </td>
-                                <td class="product-quantity" data-title="Quantity">
-                                    <div class="quantity">
-                                        <input type="number" class="input-text qty text" step="1" min="0" max="" name="cart[key][qty]" value="1" title="Qty" size="4" inputmode="numeric">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal" data-title="Subtotal">
-                                    <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>45.00</bdi></span>
-                                </td>
-                            </tr>
+                        <tbody id="cart-table-body">
+                            <!-- Items will be populated by JS -->
                             <tr>
                                 <td colspan="6" class="actions">
                                     <div class="coupon">
@@ -78,11 +57,11 @@
                         <table cellspacing="0" class="shop_table shop_table_responsive">
                             <tr class="cart-subtotal">
                                 <th>Subtotal</th>
-                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>45.00</bdi></span></td>
+                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span><span id="cart-subtotal">0.00</span></bdi></span></td>
                             </tr>
                             <tr class="order-total">
                                 <th>Total</th>
-                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>45.00</bdi></span></strong></td>
+                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span><span id="cart-total-page">0.00</span></bdi></span></strong></td>
                             </tr>
                         </table>
                         <div class="wc-proceed-to-checkout">
