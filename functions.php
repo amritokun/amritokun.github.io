@@ -23,12 +23,12 @@ function lumipuchi_theme_setup() {
     add_theme_support('custom-logo');
     add_theme_support('align-wide');
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
-}
 
     // Register navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'lumipuchi'),
     ));
+}
 add_action('after_setup_theme', 'lumipuchi_theme_setup');
 
 function lumipuchi_enqueue_scripts() {
@@ -80,7 +80,7 @@ if (!function_exists('lumipuchi_remove_downloads_from_account_menu')) {
     function lumipuchi_remove_downloads_from_account_menu($items) {
         unset($items['downloads']);
         return $items;
-	}
+    }
     add_filter('woocommerce_account_menu_items', 'lumipuchi_remove_downloads_from_account_menu');
 }
 

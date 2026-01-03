@@ -40,6 +40,8 @@ html.dark {
   --accent: rgba(255,255,255,0.03);
   --card: rgba(18,14,20,0.6);
   --glass: rgba(255,255,255,0.04);
+  --shadow-1: 0 6px 20px rgba(0,0,0,0.4);
+  --shadow-2: 0 20px 50px rgba(0,0,0,0.6);
 }
 
 * {
@@ -948,8 +950,6 @@ html.dark .woocommerce-account .woocommerce {
 .woocommerce-account .woocommerce-MyAccount-navigation li:not(.is-active) a:hover {
   background-color: var(--accent);
   color: var(--primary);
-  background-color: var(--accent); /* Light mode hover background */
-  color: var(--primary); /* Light mode hover text */
   transform: translateY(-2px);
 }
 
@@ -1360,9 +1360,9 @@ html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark 
 }
   
 html.dark .woocommerce-orders-table tbody tr {
-  background: transparent;
-  border: none;
-  box-shadow: none;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-1);
 }
 
 .woocommerce-orders-table tbody tr:hover {
@@ -1371,8 +1371,8 @@ html.dark .woocommerce-orders-table tbody tr {
 }
 
 html.dark .woocommerce-orders-table tbody tr:hover {
-  transform: none;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-2);
 }
 
 .woocommerce-orders-table__cell {
