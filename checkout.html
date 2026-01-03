@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart | Lumipuchi</title>
+    <title>Checkout | Lumipuchi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="woocommerce-cart">
+<body class="woocommerce-checkout">
     <header class="site-header">
         <nav>
             <div class="logo-wrapper">
@@ -27,6 +27,9 @@
                 <a href="account.html" class="nav-btn" aria-label="Account">
                     <svg class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                 </a>
+                <button class="nav-btn" id="cart-btn" aria-label="View Cart">
+                    <svg class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark Mode">
                     <svg id="theme-icon" class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
                 </button>
@@ -37,38 +40,57 @@
     <div class="container">
         <div class="entry-content">
             <div class="woocommerce">
-                <div class="woocommerce-notices-wrapper"></div>
-                <form class="woocommerce-cart-form" action="#" method="post">
-                    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-                        <tbody id="cart-table-body">
-                            <!-- Items will be populated by JS -->
-                            <tr>
-                                <td colspan="6" class="actions">
-                                    <div class="coupon">
-                                        <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="Coupon code"> <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
-                                    </div>
-                                    <button type="submit" class="button" name="update_cart" value="Update cart" disabled>Update cart</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
+                <div class="col2-set" id="customer_details">
+                    <div class="woocommerce-billing-fields">
+                        <h3>Billing details</h3>
+                        <form class="woocommerce-account" onsubmit="event.preventDefault();">
+                            <div class="form-row">
+                                <label for="billing_first_name">First name <span class="required">*</span></label>
+                                <input type="text" class="input-text" name="billing_first_name" id="billing_first_name">
+                            </div>
+                            <div class="form-row">
+                                <label for="billing_last_name">Last name <span class="required">*</span></label>
+                                <input type="text" class="input-text" name="billing_last_name" id="billing_last_name">
+                            </div>
+                            <div class="form-row">
+                                <label for="billing_email">Email address <span class="required">*</span></label>
+                                <input type="email" class="input-text" name="billing_email" id="billing_email">
+                            </div>
+                            <div class="form-row">
+                                <label for="billing_address_1">Street address <span class="required">*</span></label>
+                                <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name">
+                            </div>
+                            <div class="form-row">
+                                <label for="billing_city">Town / City <span class="required">*</span></label>
+                                <input type="text" class="input-text" name="billing_city" id="billing_city">
+                            </div>
+                        </form>
+                    </div>
+                </div>
 
-                <div class="cart-collaterals">
-                    <div class="cart_totals">
-                        <h2>Cart totals</h2>
-                        <table cellspacing="0" class="shop_table shop_table_responsive">
-                            <tr class="cart-subtotal">
-                                <th>Subtotal</th>
-                                <td data-title="Subtotal"><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span><span id="cart-subtotal">0.00</span></bdi></span></td>
+                <div class="woocommerce-checkout-review-order">
+                    <h3 id="order_review_heading">Your order</h3>
+                    <table class="shop_table woocommerce-checkout-review-order-table">
+                        <thead>
+                            <tr>
+                                <th class="product-name">Product</th>
+                                <th class="product-total">Subtotal</th>
                             </tr>
+                        </thead>
+                        <tbody id="checkout-order-table">
+                            <!-- Populated by JS -->
+                        </tbody>
+                        <tfoot>
                             <tr class="order-total">
                                 <th>Total</th>
-                                <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span><span id="cart-total-page">0.00</span></bdi></span></strong></td>
+                                <td><strong><span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span><span id="checkout-total">0.00</span></bdi></span></strong></td>
                             </tr>
-                        </table>
-                        <div class="wc-proceed-to-checkout">
-                            <a href="checkout.html" class="checkout-button button alt wc-forward">Proceed to checkout</a>
+                        </tfoot>
+                    </table>
+
+                    <div id="payment" class="woocommerce-checkout-payment">
+                        <div class="place-order">
+                            <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Place order</button>
                         </div>
                     </div>
                 </div>
@@ -102,6 +124,19 @@
             &copy; 2024 Lumipuchi. All rights reserved.
         </div>
     </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Bag</h2>
+                <button class="close-cart" id="close-cart" aria-label="Close Cart"><svg class="nav-icon" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+            </div>
+            <div class="cart-items"><div class="empty-cart-msg">Your cart is empty ✨</div></div>
+            <div class="cart-actions"><button class="checkout-btn" onclick="window.location.href='checkout.html'">Checkout</button></div>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>

@@ -123,6 +123,28 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cartTotalEl) {
             cartTotalEl.textContent = '$' + total.toFixed(2);
         }
+        
+        // 3. Update Checkout Page (if exists)
+        const checkoutOrderTable = document.getElementById('checkout-order-table');
+        const checkoutTotal = document.getElementById('checkout-total');
+        
+        if (checkoutOrderTable) {
+            checkoutOrderTable.innerHTML = '';
+            cart.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'cart_item';
+                row.innerHTML = `
+                    <td class="product-name">
+                        ${item.name}&nbsp;<strong class="product-quantity">×&nbsp;${item.qty}</strong>
+                    </td>
+                    <td class="product-total">
+                        <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>${(item.price * item.qty).toFixed(2)}</bdi></span>
+                    </td>
+                `;
+                checkoutOrderTable.appendChild(row);
+            });
+            if(checkoutTotal) checkoutTotal.textContent = total.toFixed(2);
+        }
 
         // 2. Update Cart Page (if exists)
         const cartTableBody = document.getElementById('cart-table-body');
@@ -222,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         buyNowBtn.addEventListener('click', (e) => {
             e.preventDefault();
             addItemToCart(buyNowBtn);
-            window.location.href = 'cart.html';
+            window.location.href = 'checkout.html';
         });
     }
 
