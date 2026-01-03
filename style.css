@@ -8,7 +8,10 @@ Tested up to: 6.0
 Requires PHP: 7.4
 Text Domain: lumipuchi
 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
 
 :root {
   /* refined palette for a premium feel */
@@ -18,6 +21,7 @@ Text Domain: lumipuchi
   --muted: #7b6b71;
   --primary: #c0518a; /* stronger rose */
   --primary-2: #ff7fb3; /* accent gradient stop */
+  --primary-interactive: #ff4fa5; /* Hot pink for buttons/actions */
   --accent: #f6e8eb;
   --card: #ffffff;
   --glass: rgba(255,255,255,0.6);
@@ -898,11 +902,18 @@ html.dark #theme-icon {
   font-family: 'Poppins', sans-serif;
 }
 
-html.light .woocommerce-account .woocommerce {
+/* Default Light Mode Styles */
+.woocommerce-account .woocommerce {
   background: linear-gradient(135deg, #fff6f8, #fdf4fa);
   padding: 2rem;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-2);
+}
+
+/* Dark Mode Override */
+html.dark .woocommerce-account .woocommerce {
+  background: transparent;
+  box-shadow: none;
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation {
@@ -929,7 +940,7 @@ html.light .woocommerce-account .woocommerce {
 }
 
 .woocommerce-account .woocommerce-MyAccount-navigation li.is-active a {
-  color: #ff4fa5;
+  color: var(--primary-interactive);
   background-color: var(--accent);
   color: var(--primary);
 }
@@ -982,7 +993,7 @@ html.dark .woocommerce-account .woocommerce-MyAccount-content {
 }
 
 .woocommerce-MyAccount-content a {
-  color: #ff4fa5;
+  color: var(--primary-interactive);
   font-weight: 600;
   text-decoration: none;
   background-image: linear-gradient(currentColor, currentColor);
@@ -1054,7 +1065,7 @@ html.dark .woocommerce-account .woocommerce-info {
 
 .woocommerce-account .woocommerce-info .button,
 .woocommerce-account button.button {
-  background-color: #ff4fa5;
+  background-color: var(--primary-interactive);
   color: #fff;
   border-radius: 999px;
   padding: 0.75rem 1.6rem;
@@ -1066,7 +1077,7 @@ html.dark .woocommerce-account .woocommerce-info {
 
 .woocommerce-account .woocommerce-info .button:hover,
 .woocommerce-account button.button:hover {
-  background-image: linear-gradient(to right, #ff4fa5 0%, #ff94c8 100%);
+  background-image: linear-gradient(to right, var(--primary-interactive) 0%, #ff94c8 100%);
   box-shadow: 0 6px 20px rgba(255, 111, 181, 0.4);
   transform: translateY(-2px);
 }
@@ -1144,7 +1155,7 @@ html.dark .woocommerce-account form .form-row input.input-text::placeholder {
 
 .woocommerce-account form .form-row input.input-text:focus,
 .woocommerce-account form .form-row textarea:focus {
-  border-color: #ff4fa5;
+  border-color: var(--primary-interactive);
   box-shadow: 0 0 0 3px rgba(255, 79, 165, 0.2);
   outline: none;
 }
@@ -1388,7 +1399,7 @@ html.dark .woocommerce-orders-table tbody tr:hover {
 }
 
 html.dark .woocommerce-orders-table__cell-order-number a {
-  color: #ff4fa5;
+  color: var(--primary-interactive);
 }
 
 .woocommerce-orders-table__cell-order-actions .button {
@@ -1599,7 +1610,7 @@ html.dark .single-product .woocommerce-product-details__short-description {
 
 .single-product button.single_add_to_cart_button {
     flex-grow: 1;
-    background: linear-gradient(90deg, #ff6db0, #ff4fa5) !important;
+    background: linear-gradient(90deg, #ff6db0, var(--primary-interactive)) !important;
     color: white !important;
     border: none;
     border-radius: 12px !important;
@@ -1622,7 +1633,7 @@ html.dark .single-product .woocommerce-product-details__short-description {
     display: block;
     width: 100%;
     text-align: center;
-    background: linear-gradient(90deg, #ff4fa5, #ff94d4) !important;
+    background: linear-gradient(90deg, var(--primary-interactive), #ff94d4) !important;
     color: white !important;
     border: none !important;
     border-radius: 12px !important;
@@ -1789,7 +1800,7 @@ html.dark .woocommerce-tabs .panel {
 }
 
 .woocommerce-cart .product-price .amount {
-    color: #ff4fa5;
+    color: var(--primary-interactive);
 }
 
 .woocommerce-cart .product-price del .amount {
@@ -1797,7 +1808,7 @@ html.dark .woocommerce-tabs .panel {
 }
 
 .woocommerce-cart .product-name a:hover {
-    color: #ff4fa5;
+    color: var(--primary-interactive);
 }
 
 /* "1 LEFT IN STOCK" Badge */
@@ -1834,7 +1845,7 @@ html.dark .woocommerce-tabs .panel {
 }
 
 .woocommerce-cart a.remove:hover {
-    color: #ff4fa5 !important;
+    color: var(--primary-interactive) !important;
     transform: scale(1.2) rotate(90deg);
 }
 
@@ -1896,7 +1907,7 @@ html.dark .woocommerce-tabs .panel {
 
 /* "Proceed to Checkout" Button */
 .wc-proceed-to-checkout .button.checkout-button {
-    background: linear-gradient(90deg, #6e2d7c, #ff4fa5) !important;
+    background: linear-gradient(90deg, #6e2d7c, var(--primary-interactive)) !important;
     color: white !important;
     border-radius: 999px !important;
     padding: 1rem 2rem !important;

@@ -2,10 +2,27 @@
 
 function lumipuchi_theme_setup() {
     // Add support for WooCommerce
-    add_theme_support('woocommerce');
+    add_theme_support('woocommerce', array(
+        'thumbnail_image_width' => 150,
+        'single_image_width'    => 600,
+        'product_grid'          => array(
+            'default_rows'    => 3,
+            'min_rows'        => 2,
+            'max_rows'        => 8,
+            'default_columns' => 4,
+            'min_columns'     => 2,
+            'max_columns'     => 5,
+        ),
+    ));
     add_theme_support('wc-product-gallery-zoom');
     add_theme_support('wc-product-gallery-lightbox');
     add_theme_support('wc-product-gallery-slider');
+
+    // Standard Theme Support
+    add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('align-wide');
+    add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
 }
 
     // Register navigation menus
@@ -15,6 +32,9 @@ function lumipuchi_theme_setup() {
 add_action('after_setup_theme', 'lumipuchi_theme_setup');
 
 function lumipuchi_enqueue_scripts() {
+    // Enqueue Google Fonts (Performance improvement over @import)
+    wp_enqueue_style('lumipuchi-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:wght@400;500;600&display=swap', array(), null);
+
     // Enqueue the main stylesheet
     wp_enqueue_style('lumipuchi-style', get_stylesheet_uri());
 
