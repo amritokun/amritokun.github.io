@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ${item.name}&nbsp;<strong class="product-quantity">×&nbsp;${item.qty}</strong>
                     </td>
                     <td class="product-total">
-                        <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>${(item.price * item.qty).toFixed(2)}</bdi></span>
+                        <span class="price-amount amount"><bdi><span class="currency-symbol">$</span>${(item.price * item.qty).toFixed(2)}</bdi></span>
                     </td>
                 `;
                 checkoutOrderTable.appendChild(row);
@@ -158,19 +158,19 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 cart.forEach((item, index) => {
                     const row = document.createElement('tr');
-                    row.classList.add('woocommerce-cart-form__cart-item', 'cart_item');
+                    row.classList.add('cart-item-row', 'cart_item');
                     row.innerHTML = `
                         <td class="product-remove">
                             <a href="#" class="remove remove-item" data-index="${index}" aria-label="Remove this item">&times;</a>
                         </td>
                         <td class="product-thumbnail">
-                            <img src="${item.image}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail cart-thumbnail" alt="">
+                            <img src="${item.image}" class="cart-thumbnail-img cart-thumbnail" alt="">
                         </td>
                         <td class="product-name" data-title="Product">
                             <a href="#">${item.name}</a>
                         </td>
                         <td class="product-price" data-title="Price">
-                            <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>${item.price}</bdi></span>
+                            <span class="price-amount amount"><bdi><span class="currency-symbol">$</span>${item.price}</bdi></span>
                         </td>
                         <td class="product-quantity" data-title="Quantity">
                             <div class="quantity">
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </td>
                         <td class="product-subtotal" data-title="Subtotal">
-                            <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>${(item.price * item.qty).toFixed(2)}</bdi></span>
+                            <span class="price-amount amount"><bdi><span class="currency-symbol">$</span>${(item.price * item.qty).toFixed(2)}</bdi></span>
                         </td>
                     `;
                     cartTableBody.appendChild(row);
