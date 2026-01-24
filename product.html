@@ -531,9 +531,50 @@
                 font-size: 1.75rem;
             }
 
+            .product-current-price {
+                font-size: 1.5rem;
+            }
+
+            .product-price-section {
+                flex-wrap: wrap;
+            }
+
             .product-features {
                 grid-template-columns: 1fr;
                 gap: 0.75rem;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .add-to-cart-main {
+                width: 100%;
+            }
+
+            .wishlist-btn {
+                width: 100%;
+                border-radius: var(--radius-md);
+                height: 50px;
+            }
+
+            .quantity-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .quantity-control {
+                justify-content: center;
+            }
+
+            .product-thumbnails {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 60px;
             }
 
             .tab-buttons {
@@ -547,7 +588,35 @@
             }
 
             .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .specs-table td:first-child {
+                width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-page {
+                padding: 5rem 0.75rem 2rem;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .product-rating {
+                flex-wrap: wrap;
+            }
+
+            .related-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .product-3d-main::after {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
             }
         }
     </style>
@@ -567,9 +636,10 @@
 
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#products" class="active">Shop</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
 
             <div class="nav-actions">

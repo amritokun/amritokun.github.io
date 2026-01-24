@@ -124,14 +124,14 @@ function initQuickView() {
   const overlay = document.getElementById('quick-view-overlay');
   const closeBtn = document.getElementById('close-quick-view');
 
-  // Product data (in real app, this would come from API)
+  // Product data (actual Lumipuchi products)
   const products = {
-    1: { id: 1, name: 'Nebula Dreams', category: 'Cosmic Series', description: 'Hand-painted galaxy swirls that capture the essence of distant nebulae. Each piece is unique, featuring mesmerizing purples, pinks, and cosmic dust.', price: 599 },
-    2: { id: 2, name: 'Cherry Blossom', category: 'Nature Collection', description: 'Delicate sakura petals preserved in crystal-clear resin. Brings the tranquility of Japanese spring to your everyday carry.', price: 499 },
-    3: { id: 3, name: 'Golden Hour', category: 'Minimal Series', description: 'Pure elegance in brushed gold. Minimalist design that speaks volumes about sophisticated taste.', price: 899 },
-    4: { id: 4, name: 'Aurora Borealis', category: 'Cosmic Series', description: 'The northern lights captured in a stunning display of greens and blues. Limited edition with holographic effects.', price: 1299 },
-    5: { id: 5, name: 'Ocean Wave', category: 'Nature Collection', description: 'Resin-encased sea elements with real beach sand. Feel the ocean breeze every time you reach for your keys.', price: 749 },
-    6: { id: 6, name: 'Diamond Dust', category: 'Limited Edition', description: 'Crystalline perfection with embedded micro-diamonds. The ultimate statement piece for those who demand the extraordinary.', price: 1999 }
+    1: { id: 1, name: 'Fluffy Puppy', category: 'Kawaii Plush', description: 'Adorable white fluffy puppy keychain with a cute pink bow. Soft plush material that feels amazing to touch. Perfect for bag decoration or gift.', price: 299, image: 'assets/images/fluffy-puppy.jpg' },
+    2: { id: 2, name: 'Fluffy Bear', category: 'Kawaii Plush', description: 'Cute white fluffy bear with blue clasp clip. Soft and cuddly design perfect for keys, bags, or as a collectible. Made with premium materials.', price: 349, image: 'assets/images/fluffy-bear.jpg' },
+    3: { id: 3, name: 'Fluffy Cat', category: 'Kawaii Plush', description: 'Handmade fluffy cat keychain with adorable blue bow. Each piece is carefully crafted with attention to detail. A must-have for cat lovers!', price: 399, image: 'assets/images/fluffy-cat.jpg' },
+    4: { id: 4, name: 'Happy Baguette', category: 'Food & Bakery', description: 'Cute smiling bread plush keychain. This adorable baguette features a happy face and comes with a braided strap. Perfect for foodies!', price: 249, image: 'assets/images/bread-keychain.jpg' },
+    5: { id: 5, name: 'Choco Cookie', category: 'Food & Bakery', description: 'Adorable chocolate chip cookie plush keychain. Soft, squishy, and irresistibly cute. Complete with a matching braided strap.', price: 249, image: 'assets/images/cookie-keychain.jpg' },
+    6: { id: 6, name: 'Fluffy Puppy Deluxe', category: 'Limited Edition', description: 'Premium version of our bestselling Fluffy Puppy. Comes in a beautiful gift box with a certificate of authenticity. Limited stock available!', price: 499, image: 'assets/images/fluffy-puppy.jpg' }
   };
 
   // Open quick view
@@ -154,7 +154,14 @@ function initQuickView() {
           addBtn.dataset.id = product.id;
           addBtn.dataset.name = product.name;
           addBtn.dataset.price = product.price;
-          addBtn.dataset.image = 'assets/images/keychain.jpg';
+          addBtn.dataset.image = product.image || 'assets/images/keychain.jpg';
+        }
+
+        // Update modal image if exists
+        const qvImage = document.getElementById('qv-image');
+        if (qvImage) {
+          qvImage.src = product.image || 'assets/images/keychain.jpg';
+          qvImage.alt = product.name;
         }
 
         // Initialize 3D viewer for this product
