@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Lumipuchi - Our story, mission, and the artisans behind our premium handcrafted keychains.">
+    <title>About Us | Lumipuchi Premium Keychains</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .about-page {
+            padding: 8rem 1.5rem 4rem;
+            min-height: 100vh;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            max-width: 1200px;
+            margin: 0 auto 6rem;
+            text-align: center;
+        }
+
+        .about-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-stat {
+            text-align: center;
+        }
+
+        .about-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .about-stat-label {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            max-width: 1200px;
+            margin: 0 auto 6rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-visual {
+            position: relative;
+        }
+
+        .story-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+        }
+
+        .story-image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(192, 81, 138, 0.2), transparent);
+        }
+
+        .story-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--surface);
+            padding: 1.5rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2);
+            text-align: center;
+        }
+
+        .story-badge-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .story-badge-text {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .story-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            color: var(--muted);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-highlight {
+            background: var(--accent);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 2rem 0;
+        }
+
+        .story-highlight p {
+            margin: 0;
+            font-style: italic;
+            color: var(--text);
+        }
+
+        /* Values Section */
+        .values-section {
+            background: var(--gradient-subtle);
+            padding: 6rem 1.5rem;
+            margin: 0 -1.5rem;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .values-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .values-header p {
+            color: var(--muted);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--gradient-glass);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 2.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* Process Section */
+        .process-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .process-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--border-light);
+            z-index: 0;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 30px rgba(192, 81, 138, 0.3);
+        }
+
+        .process-step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            max-width: 1200px;
+            margin: 6rem auto;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .team-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--gradient-glass);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-1);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .team-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .about-cta {
+            max-width: 900px;
+            margin: 6rem auto 0;
+            text-align: center;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .about-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .about-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .about-cta .cta-btn {
+            background: white;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .about-cta .cta-btn:hover {
+            background: var(--text);
+            color: white;
+        }
+
+        @media (max-width: 1024px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .story-image {
+                height: 350px;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-page {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .about-stats {
+                gap: 2rem;
+            }
+
+            .about-stat-number {
+                font-size: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .about-cta {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Cosmic Canvas -->
+    <canvas id="cosmic-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="site-header">
+        <nav>
+            <a href="index.html" class="logo-wrapper">
+                <span class="logo">Lumipuchi</span>
+                <span class="logo-tagline">ILLUMINATE YOUR STYLE</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="nav-btn" id="cart-btn" aria-label="Cart">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </button>
+
+                <a href="account.html" class="nav-btn" aria-label="Account">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
+                    </svg>
+                </a>
+
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- About Page -->
+    <section class="about-page">
+
+        <!-- Hero -->
+        <div class="about-hero">
+            <span class="section-badge">Our Story</span>
+            <h1 class="about-hero-title">Crafting <span>Cosmic Magic</span> ✨</h1>
+            <p class="about-hero-subtitle">
+                Born from a passion for art and a love for the cosmos, Lumipuchi creates handcrafted keychains
+                that transform everyday accessories into tiny universes of wonder.
+            </p>
+            <div class="about-stats">
+                <div class="about-stat">
+                    <span class="about-stat-number">50K+</span>
+                    <span class="about-stat-label">Happy Customers</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-number">500+</span>
+                    <span class="about-stat-label">Unique Designs</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-number">4.9★</span>
+                    <span class="about-stat-label">Average Rating</span>
+                </div>
+                <div class="about-stat">
+                    <span class="about-stat-number">2019</span>
+                    <span class="about-stat-label">Founded</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Story -->
+        <div class="story-section">
+            <div class="story-visual">
+                <div class="story-image-wrapper">
+                    <div class="story-image">🎨</div>
+                </div>
+                <div class="story-badge">
+                    <span class="story-badge-number">7+</span>
+                    <span class="story-badge-text">Years of Crafting</span>
+                </div>
+            </div>
+            <div class="story-content">
+                <h2>From a Small Studio to Your Pocket</h2>
+                <p>
+                    Lumipuchi began in 2019 as a creative experiment in a tiny home studio. Our founder,
+                    inspired by late-night stargazing sessions, wondered: "What if we could carry a piece
+                    of the cosmos wherever we go?"
+                </p>
+                <p>
+                    That curiosity sparked the creation of our first keychain - a hand-painted nebula
+                    encased in crystal-clear resin. Friends and family fell in love, and word spread quickly.
+                    What started as a hobby became a mission.
+                </p>
+                <div class="story-highlight">
+                    <p>"Every keychain tells a story. Every owner becomes part of that story. That's the magic of
+                        Lumipuchi."</p>
+                </div>
+                <p>
+                    Today, with a team of skilled artisans, we've shipped over 50,000 keychains to
+                    customers across India and beyond. But our core belief remains unchanged: small
+                    accessories can make big impressions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="values-section">
+            <div class="values-container">
+                <div class="values-header">
+                    <span class="section-badge">Our Values</span>
+                    <h2>What Drives Us</h2>
+                    <p>The principles that guide every keychain we create</p>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎨</div>
+                        <h3>Artisan Craftsmanship</h3>
+                        <p>Every piece is handcrafted with meticulous attention to detail. No two keychains are exactly
+                            alike - that's what makes them special.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">♻️</div>
+                        <h3>Sustainable Practices</h3>
+                        <p>We use eco-friendly materials and minimize waste. Our packaging is 100% recyclable because we
+                            care about our planet.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">💖</div>
+                        <h3>Customer Love</h3>
+                        <p>Your satisfaction is our success. We go above and beyond to ensure every customer feels
+                            valued and heard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process -->
+        <div class="process-section">
+            <div class="process-header">
+                <span class="section-badge">Our Process</span>
+                <h2>How Magic Happens</h2>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Design</h3>
+                    <p>Every keychain begins as a sketch, inspired by nature, cosmos, and imagination.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Craft</h3>
+                    <p>Our artisans hand-paint each layer with precision and care.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Seal</h3>
+                    <p>Premium resin is poured to create a crystal-clear, durable finish.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Ship</h3>
+                    <p>Careful packaging ensures your keychain arrives perfect and ready to shine.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-section">
+            <div class="team-header">
+                <span class="section-badge">Our Team</span>
+                <h2>Meet the Creators</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">👩‍🎨</div>
+                    <h3>Priya Sharma</h3>
+                    <span class="team-role">Founder & Head Designer</span>
+                    <p>The visionary behind Lumipuchi's cosmic aesthetic. Priya turns stargazing dreams into wearable
+                        art.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👨‍🔧</div>
+                    <h3>Arjun Patel</h3>
+                    <span class="team-role">Lead Artisan</span>
+                    <p>With steady hands and an eye for detail, Arjun ensures every keychain meets our quality
+                        standards.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">👩‍💼</div>
+                    <h3>Meera Reddy</h3>
+                    <span class="team-role">Customer Experience</span>
+                    <p>Meera makes sure every customer interaction is as delightful as our keychains.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="about-cta">
+            <h2>Ready to Own a Piece of the Cosmos?</h2>
+            <p>Explore our collection and find the keychain that speaks to your soul.</p>
+            <a href="shop.html" class="cta-btn">
+                Shop Now
+                <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" />
+                </svg>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <a href="index.html" class="footer-logo">Lumipuchi</a>
+                <p>Illuminating your everyday with handcrafted cosmic keychains.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="categories.html">Cosmic Series</a></li>
+                    <li><a href="categories.html">Nature Collection</a></li>
+                    <li><a href="categories.html">Minimal Series</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping</a></li>
+                    <li><a href="#">Returns</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Lumipuchi. Made with 💖 in India</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-overlay" id="cart-overlay"></div>
+        <div class="cart-panel">
+            <div class="cart-header">
+                <h2>Your Cart ✨</h2>
+                <button class="close-cart" id="close-cart">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+            </div>
+            <div class="cart-items" id="cart-items"></div>
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span class="cart-total" id="cart-total">₹0</span>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button class="clear-btn" id="clear-cart">Clear All</button>
+                <a href="checkout.html" class="checkout-btn">Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message" id="toast-message">Added to cart!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/three-scene.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
