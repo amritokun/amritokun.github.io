@@ -1,9 +1,7 @@
 /* 1. Animated Gradient Section Divider */
 .animated-gradient-divider {
     height: 100px;
-    background: linear-gradient(-45deg, #f6e3e5, #bb528a, #8e3a66, #bb528a);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: #f6e3e5;
     position: relative;
     overflow: hidden;
 }
@@ -28,12 +26,6 @@
 
 .wavy-divider .shape-fill {
     fill: #FFFFFF; /* Should match the background of the section below it */
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* 3. Micro-interactions */
@@ -208,7 +200,7 @@
     color: #bb528a;
 }
 .gradient-submit {
-    background: linear-gradient(45deg, #bb528a, #8e3a66);
+    background: #bb528a;
     border: none;
     color: white;
     padding: 12px 24px;
@@ -217,23 +209,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
 }
 .gradient-submit:hover {
+    background: #8e3a66;
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(142, 58, 102, 0.3);
-}
-
-/* 📦 WooCommerce Integration */
-.woocommerce ul.products li.product .woocommerce-loop-product__link img {
-    border-radius: 15px; /* Rounded product images */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.woocommerce ul.products li.product:hover .woocommerce-loop-product__link img {
-    transform: scale(1.05); /* Zoom-in hover effect */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-.woocommerce a.add_to_cart_button, .woocommerce button.button.alt {
-    transition: box-shadow 0.3s ease !important;
-}
-.woocommerce a.add_to_cart_button:hover, .woocommerce button.button.alt:hover {
-    background-color: #bb528a !important; /* Fuchsia */
-    box-shadow: 0 0 15px rgba(187, 82, 138, 0.7) !important; /* Fuchsia glow */
 }

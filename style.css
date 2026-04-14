@@ -1,9 +1,5 @@
 /*
-Theme Name: Lumipuchi
-Author: Lumipuchi Team
-Description: A cosmic premium e-commerce theme with 3D elements.
-Version: 2.0
-Text Domain: lumipuchi
+ * Lumipuchi Main Stylesheet
 */
 
 /* ===== IMPORTS & VARIABLES ===== */
@@ -25,9 +21,6 @@ html {
   --glass: rgba(255,255,255,0.6);
   --glass-stronger: rgba(255,255,255,0.85);
   --border-light: rgba(187, 82, 138, 0.1);
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-2));
-  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  --gradient-subtle: linear-gradient(180deg, transparent, rgba(187, 82, 138, 0.03));
   
   /* Shadows */
   --shadow-1: 0 6px 20px rgba(35,20,30,0.08);
@@ -56,7 +49,6 @@ html.dark {
   --glass: rgba(255,255,255,0.04);
   --glass-stronger: rgba(18,14,20,0.85);
   --border-light: rgba(255, 127, 179, 0.15);
-  --gradient-glass: linear-gradient(135deg, rgba(18,14,20,0.9), rgba(18,14,20,0.7));
   --shadow-1: 0 6px 20px rgba(0,0,0,0.4);
   --shadow-2: 0 20px 50px rgba(0,0,0,0.6);
   --shadow-glow: 0 0 60px rgba(255, 127, 179, 0.3);
@@ -281,7 +273,7 @@ nav {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--gradient-primary);
+  background: var(--primary);
   transition: width 0.3s ease;
   border-radius: 2px;
 }
@@ -464,7 +456,7 @@ html.dark #theme-icon {
 
 .hero-badge {
   display: inline-block;
-  background: var(--gradient-primary);
+  background: var(--primary);
   color: white;
   padding: 0.5rem 1.25rem;
   border-radius: 999px;
@@ -493,10 +485,7 @@ html.dark #theme-icon {
 .hero-title .word-animate:nth-child(3) { animation-delay: 0.3s; }
 
 .hero-title .highlight {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary);
 }
 
 .hero-description {
@@ -528,12 +517,13 @@ html.dark #theme-icon {
 }
 
 .cta-btn.primary {
-  background: var(--gradient-primary);
+  background: var(--primary);
   color: white;
   box-shadow: 0 8px 30px rgba(187, 82, 138, 0.3);
 }
 
 .cta-btn.primary:hover {
+  background: var(--primary-2);
   transform: translateY(-4px);
   box-shadow: 0 15px 40px rgba(187, 82, 138, 0.4);
 }
@@ -681,7 +671,7 @@ html.dark #theme-icon {
 }
 
 .category-card {
-  background: var(--gradient-glass);
+  background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   padding: 2rem;
@@ -697,7 +687,7 @@ html.dark #theme-icon {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--gradient-primary);
+  background: var(--primary-2);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -716,7 +706,7 @@ html.dark #theme-icon {
   width: 80px;
   height: 80px;
   margin: 0 auto 1.5rem;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -770,14 +760,6 @@ html.dark #theme-icon {
   position: relative;
 }
 
-.products-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--gradient-subtle);
-  pointer-events: none;
-}
-
 /* Filters */
 .product-filters {
   display: flex;
@@ -802,7 +784,7 @@ html.dark #theme-icon {
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--gradient-primary);
+  background: var(--primary);
   color: white;
   border-color: transparent;
   transform: translateY(-2px);
@@ -818,7 +800,7 @@ html.dark #theme-icon {
 
 /* Product Card */
 .product-card {
-  background: var(--gradient-glass);
+  background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -909,7 +891,7 @@ html.dark #theme-icon {
 }
 
 .product-badge.limited {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: var(--primary-2);
 }
 
 .product-info {
@@ -966,7 +948,7 @@ html.dark #theme-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border: none;
   cursor: pointer;
   display: flex;
@@ -977,6 +959,7 @@ html.dark #theme-icon {
 }
 
 .add-to-cart-btn:hover {
+  background: var(--primary-2);
   transform: scale(1.15) rotate(90deg);
   box-shadow: 0 8px 25px rgba(187, 82, 138, 0.4);
 }
@@ -1062,7 +1045,7 @@ html.dark #theme-icon {
 .showcase-center {
   width: 100px;
   height: 100px;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1129,7 +1112,7 @@ html.dark #theme-icon {
 /* ===== TESTIMONIALS ===== */
 .testimonials {
   padding: 6rem 0;
-  background: var(--gradient-subtle);
+  background: var(--bg);
   position: relative;
 }
 
@@ -1146,7 +1129,7 @@ html.dark #theme-icon {
 
 .testimonial-card {
   min-width: calc(33.33% - 1.33rem);
-  background: var(--gradient-glass);
+  background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -1181,7 +1164,7 @@ html.dark #theme-icon {
 .author-avatar {
   width: 48px;
   height: 48px;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1235,7 +1218,7 @@ html.dark #theme-icon {
 }
 
 .newsletter-card {
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: var(--radius-xl);
   padding: 4rem;
   display: grid;
@@ -1244,17 +1227,6 @@ html.dark #theme-icon {
   align-items: center;
   position: relative;
   overflow: hidden;
-}
-
-.newsletter-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 80%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  pointer-events: none;
 }
 
 .newsletter-content {
@@ -1348,7 +1320,7 @@ html.dark #theme-icon {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background: var(--gradient-primary);
+  background: var(--primary);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
@@ -1396,7 +1368,7 @@ html.dark #theme-icon {
 }
 
 .contact-form {
-  background: var(--gradient-glass);
+  background: var(--surface);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
   padding: 2rem;
@@ -1728,12 +1700,13 @@ html.dark .cart-panel {
 }
 
 .checkout-btn {
-  background: var(--gradient-primary);
+  background: var(--primary);
   color: white;
   box-shadow: 0 6px 20px rgba(187, 82, 138, 0.3);
 }
 
 .checkout-btn:hover {
+  background: var(--primary-2);
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(187, 82, 138, 0.4);
 }

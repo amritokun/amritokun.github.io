@@ -13,21 +13,17 @@ function initPremiumFeatures() {
             dashboard.classList.toggle('open');
         });
 
-        // Example of fetching user data with jQuery AJAX
-        // This is a placeholder - you would need to create a proper WordPress AJAX endpoint
+        // Example of fetching user data
+        // This is a placeholder - you would need to create a proper API endpoint for your standalone backend
         /*
-        jQuery.ajax({
-            url: '/wp-admin/admin-ajax.php', // WordPress AJAX URL
-            type: 'POST',
-            data: {
-                action: 'get_user_dashboard_summary' // Custom action hook
-            },
-            success: function(response) {
-                if(response.success) {
-                    dashboard.querySelector('.dashboard-content').innerHTML = response.data.html;
+        fetch('/api/user/dashboard-summary')
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    dashboard.querySelector('.dashboard-content').innerHTML = data.html;
                 }
-            }
-        });
+            })
+            .catch(error => console.error('Error fetching dashboard:', error));
         */
     }
 

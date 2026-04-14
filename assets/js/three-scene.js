@@ -269,13 +269,12 @@ class Lumipuchi3D {
       .keychain-chain {
         width: 4px;
         height: 60px;
-        background: linear-gradient(to bottom, #ffd700, #ffd700 10px, transparent 10px, transparent 20px);
-        background-size: 4px 20px;
+        background: #ffd700;
       }
       .keychain-pendant {
         width: 150px;
         height: 150px;
-        background: linear-gradient(135deg, #ff7fb3, #bb528a);
+        background: #bb528a;
         border-radius: 20px;
         display: flex;
         align-items: center;
