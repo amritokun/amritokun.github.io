@@ -1,7 +1,7 @@
 /* 1. Animated Gradient Section Divider */
 .animated-gradient-divider {
     height: 100px;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #f6e3e5, #bb528a, #8e3a66, #bb528a);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     position: relative;
@@ -55,7 +55,7 @@
 }
 
 .floating-user-dashboard .dashboard-toggle {
-    background-color: #23a6d5;
+    background-color: #bb528a;
     color: white;
     border: none;
     border-radius: 50%;
@@ -126,7 +126,7 @@
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: #e73c7e;
+    background: #bb528a;
     color: white;
     border: none;
     font-size: 24px;
@@ -160,7 +160,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: #23a6d5;
+    background: #8e3a66;
     color: white;
     text-decoration: none;
     display: flex;
@@ -190,8 +190,8 @@
 }
 .form-input:focus {
     outline: none;
-    border-color: #23a6d5;
-    box-shadow: 0 0 8px rgba(35, 166, 213, 0.5);
+    border-color: #bb528a;
+    box-shadow: 0 0 8px rgba(187, 82, 138, 0.5);
 }
 .form-label {
     position: absolute;
@@ -205,10 +205,10 @@
 .form-input:not(:placeholder-shown) + .form-label {
     top: -15px;
     font-size: 0.8rem;
-    color: #23a6d5;
+    color: #bb528a;
 }
 .gradient-submit {
-    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    background: linear-gradient(45deg, #bb528a, #8e3a66);
     border: none;
     color: white;
     padding: 12px 24px;
@@ -218,7 +218,7 @@
 }
 .gradient-submit:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(229, 46, 113, 0.3);
+    box-shadow: 0 8px 15px rgba(142, 58, 102, 0.3);
 }
 
 /* 📦 WooCommerce Integration */
@@ -234,6 +234,6 @@
     transition: box-shadow 0.3s ease !important;
 }
 .woocommerce a.add_to_cart_button:hover, .woocommerce button.button.alt:hover {
-    background-color: #e73c7e !important; /* Example pink color */
-    box-shadow: 0 0 15px rgba(231, 60, 126, 0.7) !important; /* Pink glow */
+    background-color: #bb528a !important; /* Fuchsia */
+    box-shadow: 0 0 15px rgba(187, 82, 138, 0.7) !important; /* Fuchsia glow */
 }

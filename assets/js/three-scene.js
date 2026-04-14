@@ -77,14 +77,14 @@ class Lumipuchi3D {
       this.cosmicCtx.beginPath();
       this.cosmicCtx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
       
-      const color = isDark ? `rgba(255, 127, 179, ${pulseOpacity})` : `rgba(192, 81, 138, ${pulseOpacity})`;
+      const color = isDark ? `rgba(255, 127, 179, ${pulseOpacity})` : `rgba(187, 82, 138, ${pulseOpacity})`;
       this.cosmicCtx.fillStyle = color;
       this.cosmicCtx.fill();
 
       // Glow effect
       this.cosmicCtx.beginPath();
       this.cosmicCtx.arc(particle.x, particle.y, particle.radius * 3, 0, Math.PI * 2);
-      const glowColor = isDark ? `rgba(255, 127, 179, ${pulseOpacity * 0.15})` : `rgba(192, 81, 138, ${pulseOpacity * 0.1})`;
+      const glowColor = isDark ? `rgba(255, 127, 179, ${pulseOpacity * 0.15})` : `rgba(187, 82, 138, ${pulseOpacity * 0.1})`;
       this.cosmicCtx.fillStyle = glowColor;
       this.cosmicCtx.fill();
     });
@@ -118,7 +118,7 @@ class Lumipuchi3D {
       pointLight1.position.set(5, 5, 5);
       scene.add(pointLight1);
 
-      const pointLight2 = new THREE.PointLight(0xc0518a, 0.8, 100);
+      const pointLight2 = new THREE.PointLight(0xbb528a, 0.8, 100);
       pointLight2.position.set(-5, -5, 5);
       scene.add(pointLight2);
 
@@ -176,7 +176,7 @@ class Lumipuchi3D {
       keychainGroup.add(glow);
 
       // Add small decorative spheres
-      const colors = [0xff7fb3, 0xffd700, 0xc0518a, 0xffb8db];
+      const colors = [0xff7fb3, 0xffd700, 0xbb528a, 0xffb8db];
       for (let i = 0; i < 8; i++) {
         const sphereGeometry = new THREE.SphereGeometry(0.15, 16, 16);
         const sphereMaterial = new THREE.MeshStandardMaterial({
@@ -275,12 +275,12 @@ class Lumipuchi3D {
       .keychain-pendant {
         width: 150px;
         height: 150px;
-        background: linear-gradient(135deg, #ff7fb3, #c0518a);
+        background: linear-gradient(135deg, #ff7fb3, #bb528a);
         border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 20px 60px rgba(192, 81, 138, 0.5);
+        box-shadow: 0 20px 60px rgba(187, 82, 138, 0.5);
         transform: rotateY(0deg);
         animation: rotatePendant 8s ease-in-out infinite;
       }
