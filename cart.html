@@ -4,735 +4,737 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lumipuchi - Your shopping cart. Review your premium keychains before checkout.">
-    <title>Cart | Lumipuchi</title>
-
+    <meta name="description" content="Lumipuchi - Your account. Sign in or create an account to track orders.">kout.">
+        content="Shop Lumipuchi's complete collection of premium handcrafted keychains. Cosmic, Nature, Minimal and Limited Edition series.">
+    <title>Shop | Lumipuchi Premium Keychains</title>
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Fonts -->connect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">ssorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <linkref="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="premium-features.css">
+    <!-- Styles -->esheet" href="style.css">
+    <link rel="stylesheet" href="style.css">tures.css">
+    <link rel="stylesheet" href="pages.css">    <link rel="stylesheet" href="pages.css">
 
     <style>
-        .cart-page {
-            padding: 8rem 1.5rem 4rem;
-            min-height: 100vh;
-        }
-
-        .cart-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cart-page-header {
-            text-align: center;
+        .shop-page {e {
+            padding: 8rem 1.5rem 4rem;em 4rem;
+            min-height: 100vh;0vh;
+        }   display: flex;
+            align-items: center;
+        .shop-header {ntent: center;cart-container {
+            text-align: center; 1200px;
             margin-bottom: 3rem;
-        }
-
-        .cart-page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .cart-page-subtitle {
-            color: var(--muted);
-        }
-
-        .cart-layout {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .cart-items-section {
-            background: var(--gradient-glass);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .cart-items-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-light);
-            margin-bottom: 1.5rem;
-        }
-
-        .cart-items-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text);
-        }
-
-        .clear-all-btn {
-            background: none;
-            border: none;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .clear-all-btn:hover {
-            color: #ef4444;
-        }
-
-        .cart-items-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .cart-page-item {
-            display: grid;
-            grid-template-columns: 100px 1fr auto auto;
-            gap: 1.5rem;
-            align-items: center;
-            padding: 1.5rem;
-            background: var(--glass);
-            border-radius: var(--radius-lg);
-            transition: all 0.3s ease;
-        }
-
-        .cart-page-item:hover {
-            transform: translateX(5px);
-            box-shadow: var(--shadow-1);
-        }
-
-        .cart-item-image {
-            width: 100px;
-            height: 100px;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .cart-item-image img {
+        }auth-container {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cart-item-details h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 0.25rem;
-        }
-
-        .cart-item-details p {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .cart-item-variant {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        .variant-color {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            border: 2px solid var(--border-light);
-        }
-
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        .cart-qty-btn {
-            width: 36px;
-            height: 36px;
-            background: var(--accent);
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            color: var(--text);
-            transition: all 0.2s ease;
-        }
-
-        .cart-qty-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .cart-item-quantity span {
-            width: 40px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .cart-item-price {
-            min-width: 100px;
-            text-align: right;
-        }
-
-        .cart-item-price .item-total {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--primary);
-            display: block;
-        }
-
-        .cart-item-price .item-unit {
-            font-size: 0.8rem;
-            color: var(--muted);
-        }
-
-        .remove-item-btn {
-            background: none;
-            border: none;
-            color: var(--muted);
-            cursor: pointer;
-            font-size: 1.25rem;
-            padding: 0.5rem;
-            transition: all 0.3s ease;
-            opacity: 0.5;
-        }
-
-        .remove-item-btn:hover {
-            color: #ef4444;
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .empty-cart-state {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .empty-cart-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.5;
-        }
-
-        .empty-cart-state h3 {
+        .shop-title {: 480px;cart-page-header {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: clamp(2rem, 5vw, 3rem);
             color: var(--text);
-            margin-bottom: 0.5rem;
-        }
-
-        .empty-cart-state p {
-            color: var(--muted);
-            margin-bottom: 2rem;
-        }
-
-        .cart-summary {
-            background: var(--gradient-glass);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 6rem;
-        }
-
-        .cart-summary h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .summary-row .label {
-            color: var(--muted);
-        }
-
-        .summary-row .value {
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .summary-row.shipping .value {
-            color: #10b981;
-        }
-
-        .summary-divider {
-            border: none;
-            border-top: 1px dashed var(--border-light);
-            margin: 1.5rem 0;
-        }
-
-        .summary-total {
+            margin-bottom: 0.75rem;ent-glass);
+        }   border: 1px solid var(--border-light);
+            border-radius: var(--radius-xl);Playfair Display', serif;
+        .shop-subtitle {m;
+            color: var(--muted);r(20px);
+            font-size: 1.1rem;shadow-2);   margin-bottom: 0.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }auth-header {
+            text-align: center;
+        .shop-controls {m: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .summary-total .label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .summary-total .value {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .promo-code {
-            margin-bottom: 2rem;
-        }
-
-        .promo-code label {
-            display: block;
-            font-size: 0.9rem;
+            flex-wrap: wrap;ayfair Display', serif;lumns: 1fr 400px;
+            gap: 1rem; 2rem;
+            margin-bottom: 2rem;);
+            max-width: 1200px;rem;
+            margin-left: auto;
+            margin-right: auto;
+        }auth-title {
+            font-family: 'Playfair Display', serif;ar(--border-light);
+        .results-count {.75rem;--radius-xl);
             color: var(--muted);
-            margin-bottom: 0.5rem;
-        }
+            font-size: 0.95rem;em;   backdrop-filter: blur(10px);
+        }        }
 
-        .promo-input-group {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .promo-input-group input {
-            flex: 1;
-            padding: 0.75rem 1rem;
+        .sort-control {{
+            display: flex;uted);
+            align-items: center;  justify-content: space-between;
+            gap: 0.75rem;n-items: center;
+        }.5rem;
+        .auth-tabs { 1px solid var(--border-light);
+        .sort-control label {
+            color: var(--muted);
+            font-size: 0.9rem; solid var(--border-light);
+        }        .cart-items-header h2 {
+mily: 'Playfair Display', serif;
+        .sort-control select {
+            padding: 0.6rem 1rem;
             border: 1px solid var(--border-light);
             border-radius: var(--radius-md);
             background: var(--surface);
             color: var(--text);
             font-family: inherit;
-            outline: none;
+            cursor: pointer;ed);ed);
+        }   cursor: pointer;
+            position: relative;
+        .shop-layout {: all 0.3s ease;   transition: color 0.3s ease;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;er {over {
+            max-width: 1400px;
+            margin: 0 auto;ute;
+        }   bottom: -1px;
+            left: 0;ist {
+        .shop-sidebar {
+            position: sticky;
+            top: 6rem;: var(--primary);
+            height: fit-content;;
+        }   transition: transform 0.3s ease;
+        }        .cart-page-item {
+        .filter-section {
+            background: var(--gradient-glass);o auto;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);tems: center;
+            padding: 1.5rem;: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);lg);
+        }   transform: scaleX(1);   transition: all 0.3s ease;
+        }        }
+        .filter-title {
+            font-size: 1rem;
+            font-weight: 600;transform: translateX(5px);
+            color: var(--text);: var(--shadow-1);
+            margin-bottom: 1rem;
+            display: flex;{
+            align-items: center;
+            gap: 0.5rem;adeIn 0.4s ease;   width: 100px;
+        }            height: 100px;
+dius: var(--radius-md);
+        .filter-options {
+            display: flex; 1.5rem;
+            flex-direction: column;
+            gap: 0.75rem;
+        }form-group label {
+            display: block;
+        .filter-option {.9rem;;
+            display: flex;00;
+            align-items: center;
+            gap: 0.75rem;: 0.5rem;cart-item-details h3 {
+            cursor: pointer;ze: 1.1rem;
+            padding: 0.5rem;
+            border-radius: var(--radius-sm);
+            transition: background 0.2s ease;
+        }   padding: 1rem 1.25rem;
+            border: 1px solid var(--border-light);
+        .filter-option:hover {(--radius-md);
+            background: var(--accent);;
+        }   color: var(--text);
+            font-family: inherit;.5rem;
+        .filter-option input[type="checkbox"] {
+            width: 18px;e;
+            height: 18px;ll 0.3s ease;cart-item-variant {
+            accent-color: var(--primary);
         }
-
-        .promo-input-group input:focus {
-            border-color: var(--primary);
-        }
-
-        .promo-input-group button {
-            padding: 0.75rem 1.25rem;
-            background: var(--accent);
-            border: none;
-            border-radius: var(--radius-md);
-            color: var(--primary);
-            font-weight: 600;
+        .form-group input:focus {
+        .filter-option label {--primary);
+            flex: 1;ow: 0 0 0 3px rgba(192, 81, 138, 0.1);   color: var(--muted);
             cursor: pointer;
+            color: var(--text);
+            font-size: 0.95rem;eholder {
+        }   color: var(--muted);   width: 16px;
+        }            height: 16px;
+        .filter-option .count {
+            color: var(--muted);der-light);
+            font-size: 0.85rem;
+        }   justify-content: space-between;
+            align-items: center;
+        .price-range {tom: 1.5rem;   display: flex;
+            display: flex;-items: center;
+            gap: 0.75rem;t);
+            align-items: center;ius-md);
+        }   display: flex;
+            align-items: center;
+        .price-input {m;
+            flex: 1;pointer;cart-qty-btn {
+            padding: 0.6rem;36px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 0.9rem;--primary);   font-size: 1.1rem;
+        }            color: var(--text);
+ 0.2s ease;
+        .price-range span {
+            color: var(--muted);
+        }   color: var(--muted);cart-qty-btn:hover {
+        }            background: var(--primary);
+        .apply-filters-btn {
+            width: 100%; {
+            padding: 0.9rem;mary);
+            background: var(--gradient-primary);
+            border: none;on: none;
+            border-radius: 999px;ease;   text-align: center;
+            color: white;-weight: 600;
+            font-weight: 600;
+            cursor: pointer;er {
+            margin-top: 1rem;underline;
             transition: all 0.3s ease;
         }
-
-        .promo-input-group button:hover {
+        .auth-submit {right;
+        .apply-filters-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(192, 81, 138, 0.3);{
+        }   border: none;
+            border-radius: 999px;700;
+        .clear-filters {;y);
+            display: block;rem;
+            text-align: center;
+            margin-top: 0.75rem;
+            color: var(--muted); ease;item-unit {
+            font-size: 0.85rem;
+            cursor: pointer;ter;
+            transition: color 0.2s ease;
+        }   gap: 0.5rem;
+        }        .remove-item-btn {
+        .clear-filters:hover {
+            color: var(--primary);
+        }   transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(192, 81, 138, 0.4);   cursor: pointer;
+        .shop-products {t-size: 1.25rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 2rem;lex;
+        }   align-items: center;
+            gap: 1rem;
+        .load-more {2rem 0;remove-item-btn:hover {
+            grid-column: 1 / -1;444;
+            text-align: center;
+            padding: 2rem;ore,.1);
+        }auth-divider::after {
+            content: '';
+        .load-more-btn {
+            padding: 1rem 3rem;
+            background: var(--glass);light);   padding: 4rem 2rem;
+            border: 2px solid var(--primary);
+            border-radius: 999px;
+            color: var(--primary);
+            font-weight: 600;d);
+            font-size: 1rem;em;   margin-bottom: 1.5rem;
+            cursor: pointer;: 0.5;
+            transition: all 0.3s ease;
+        }social-login {
+            display: flex;ate h3 {
+        .load-more-btn:hover {family: 'Playfair Display', serif;
             background: var(--primary);
             color: white;
-        }
-
-        .checkout-btn-main {
-            width: 100%;
-            padding: 1.25rem;
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: 999px;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            text-decoration: none;
-        }
-
-        .checkout-btn-main:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(192, 81, 138, 0.4);
-        }
-
-        .secure-badge {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        .continue-shopping {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .continue-shopping a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .continue-shopping a:hover {
-            text-decoration: underline;
-        }
-
+        }social-btn {ottom: 0.5rem;
+            flex: 1;
         @media (max-width: 1024px) {
-            .cart-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .cart-summary {
+            .shop-layout {lid var(--border-light);
+                grid-template-columns: 1fr;;
+            }ackground: var(--glass);rem;
+            cursor: pointer;
+            .shop-sidebar {
                 position: static;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .cart-page {
+                display: grid;enter;var(--gradient-glass);
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;5rem;--radius-xl);
+            }olor: var(--text);
+            transition: all 0.3s ease;   backdrop-filter: blur(10px);
+            .filter-section {: sticky;
+                margin-bottom: 0;
+            }al-btn:hover {
+        }   background: var(--accent);
+            border-color: var(--primary);cart-summary h2 {
+        @media (max-width: 768px) {Playfair Display', serif;
+            .shop-page {
                 padding: 6rem 1rem 3rem;
-            }
-
-            .cart-page-item {
-                grid-template-columns: 80px 1fr;
-                grid-template-rows: auto auto;
-                gap: 1rem;
-            }
-
-            .cart-item-image {
-                width: 80px;
-                height: 80px;
-            }
-
-            .cart-item-quantity,
-            .cart-item-price {
-                grid-column: 2;
-            }
-
-            .remove-item-btn {
-                position: absolute;
-                top: 0.5rem;
-                right: 0.5rem;
-            }
-
-            .cart-page-item {
-                position: relative;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Cosmic Particles Background -->
+            }ont-size: 1.25rem;   margin-bottom: 1.5rem;
+        }            padding-bottom: 1rem;
+            .shop-controls {light);
+                flex-direction: column;
+                align-items: stretch;
+            }argin-top: 2rem;
+        }   padding-top: 2rem;
+    </style>border-top: 1px solid var(--border-light);pace-between;
+</head>     font-size: 0.9rem;
+            color: var(--muted);   font-size: 0.95rem;
+<body>  }        }
+    <!-- Cosmic Canvas -->
     <canvas id="cosmic-canvas"></canvas>
-
-    <!-- Header -->
+            color: var(--primary);
+    <!-- Header -->coration: none;
     <header class="site-header">
         <nav>
             <a href="index.html" class="logo-wrapper">
-                <span class="logo">Lumipuchi</span>
+                <span class="logo">Lumipuchi</span>r(--text);
                 <span class="logo-tagline">ILLUMINATE YOUR STYLE</span>
             </a>
-
-            <ul class="nav-links">
+        .password-strength {value {
+            <ul class="nav-links">color: #10b981;
                 <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#products">Shop</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>r-light);
+            </ul>r-radius: 2px;
+            overflow: hidden;
             <div class="nav-actions">
                 <button class="nav-btn" id="cart-btn" aria-label="Cart">
                     <svg class="nav-icon" viewBox="0 0 24 24">
                         <circle cx="9" cy="21" r="1" />
                         <circle cx="20" cy="21" r="1" />
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-                    </svg>
+                    </svg>l 0.3s ease;
                     <span class="cart-badge" id="cart-count">0</span>
                 </button>
-
+        .strength-fill.weak {1.1rem;
                 <a href="account.html" class="nav-btn" aria-label="Account">
                     <svg class="nav-icon" viewBox="0 0 24 24">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                         <circle cx="12" cy="7" r="4" />
-                    </svg>
-                </a>
-
+                    </svg>ium {.value {
+                </a>6%;
+            background: #f59e0b;   font-weight: 700;
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <svg id="theme-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
                     </svg>
-                </button>
+                </button>: 2rem;   background: #10b981;
             </div>
 
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Cart Page -->
-    <section class="cart-page">
-        <div class="cart-container">
-            <div class="cart-page-header">
-                <h1 class="cart-page-title">Your Cart ✨</h1>
-                <p class="cart-page-subtitle">Review your items before checkout</p>
+                <span></span><span></span><span></span>
+            </button>: 0.9rem;   color: var(--muted);
+        </nav>lor: var(--muted);: 0.5rem;
+    </header>argin-bottom: 0.5rem;
+        }        /* Dashboard styles (shown after login) */
+    <!-- Shop Page -->
+    <section class="shop-page">display: flex;
+        <div class="shop-header">m;
+            <span class="section-badge">Our Collection</span>
+            <h1 class="shop-title">Shop All Keychains ✨</h1>
+            <p class="shop-subtitle">Discover our complete collection of handcrafted premium keychains. Each piece tells
+                a unique story.</p>flex: 1;
+        </div>ex: 1;
+            padding: 0.75rem 1rem;;
+        <div class="shop-controls">-border-light);
+            <span class="results-count">Showing <strong>12</strong> of <strong>48</strong> products</span>
+            <div class="sort-control">;;
+                <label for="sort">Sort by:</label>
+                <select id="sort"> 1.5rem;
+                    <option value="featured">Featured</option>rder-light);
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>n-items: center;
             </div>
-
-            <div class="cart-layout">
-                <div class="cart-items-section">
-                    <div class="cart-items-header">
-                        <h2>Cart Items (<span id="item-count-display">0</span>)</h2>
-                        <button class="clear-all-btn" id="clear-all-page">Clear All</button>
-                    </div>
-
-                    <div class="cart-items-list" id="cart-items-list">
-                        <!-- Cart items will be rendered here -->
-                    </div>
+        </div>-input-group button { 1.25rem;
+            padding: 0.75rem 1.25rem;
+        <div class="shop-layout">ent);
+            <!-- Sidebar Filters -->
+            <aside class="shop-sidebar">md);
+                <div class="filter-section">primary);
+                    <h3 class="filter-title">📂 Categories</h3>
+                    <div class="filter-options">
+                        <label class="filter-option"> center;
+                            <input type="checkbox" checked>
+                            <span class="label">All Products</span>
+                            <span class="count">(12)</span>
+                        </label>imary);700;   color: white;
+                        <label class="filter-option">
+                            <input type="checkbox">
+                            <span class="label">Kawaii Plush</span>
+                            <span class="count">(6)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> none;
+                            <span class="label">Food & Bakery</span>
+                            <span class="count">(4)</span>
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox">
+                            <span class="label">Limited Edition</span>
+                            <span class="count">(2)</span>
+                        </label>
+                    </div>enter;primary);r;
+                </div>ntent: center;-primary);
+            gap: 0.5rem;m;;
+                <div class="filter-section">radius: 999px;
+                    <h3 class="filter-title">💰 Price Range</h3>
+                    <div class="price-range">
+                        <input type="number" class="price-input" placeholder="₹ Min" value="0">
+                        <span>to</span>;38, 0.4);
+                        <input type="number" class="price-input" placeholder="₹ Max" value="2000">
+                    </div>tn:hover {
                 </div>
-
-                <div class="cart-summary">
-                    <h2>Order Summary</h2>
-
-                    <div class="summary-row">
-                        <span class="label">Subtotal</span>
-                        <span class="value" id="summary-subtotal">₹0</span>
+        .secure-badge {  display: flex;
+                <div class="filter-section">
+                    <h3 class="filter-title">🏷️ Availability</h3>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" checked>
+                            <span class="label">In Stock</span>
+                            <span class="count">(42)</span>
+                        </label> {
+                        <label class="filter-option">
+                            <input type="checkbox">
+                            <span class="label">Pre-Order</span>
+                            <span class="count">(6)</span>
+                        </label> all 0.3s ease;
                     </div>
-
-                    <div class="summary-row shipping">
-                        <span class="label">Shipping</span>
-                        <span class="value" id="summary-shipping">Calculated at checkout</span>
-                    </div>
-
-                    <div class="summary-row">
-                        <span class="label">Tax (GST 18%)</span>
-                        <span class="value" id="summary-tax">₹0</span>
-                    </div>
-
-                    <hr class="summary-divider">
-
-                    <div class="summary-total">
-                        <span class="label">Total</span>
-                        <span class="value" id="summary-total">₹0</span>
-                    </div>
-
-                    <div class="promo-code">
-                        <label>Promo Code</label>
-                        <div class="promo-input-group">
-                            <input type="text" placeholder="Enter code">
-                            <button type="button">Apply</button>
+                </div>ping a {primary);
+            color: var(--primary);
+                <button class="apply-filters-btn">Apply Filters</button>
+                <span class="clear-filters">Clear all filters</span>
+            </aside>ow: var(--shadow-1);
+            border-color: var(--primary);
+            <!-- Products Grid -->
+            <div class="shop-products">
+                <!-- Product 1 - Fluffy Puppy -->
+                <div class="product-card" data-category="kawaii">
+                    <div class="product-3d-wrapper">
+                        <div class="product-image">
+                            <img src="assets/images/fluffy-puppy.jpg" alt="Fluffy Puppy Keychain">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-id="1">Quick View</button>
+                            </div>
                         </div>
-                    </div>
-
-                    <a href="checkout.html" class="checkout-btn-main" id="proceed-checkout">
-                        Proceed to Checkout
-                        <svg viewBox="0 0 24 24" width="20" height="20">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" />
-                        </svg>
-                    </a>
-
-                    <div class="secure-badge">
-                        🔒 Secure Checkout with SSL Encryption
-                    </div>
-
-                    <div class="continue-shopping">
-                        <a href="index.html#products">← Continue Shopping</a>
-                    </div>
+                        <div class="product-badge">Hot 🔥</div>
+                    </div>r(--accent);
+                    <div class="product-info">
+                        <span class="product-category">Kawaii Plush</span>
+                        <h3 class="product-name">Fluffy Puppy</h3>
+                        <p class="product-description">Adorable white puppy with pink bow</p>
+                        <div class="product-footer">rem 3rem;
+                            <div class="product-price">
+                                <span class="current-price">₹299</span>
+                                <span class="original-price">₹399</span>
+                            </div>umns: 80px 1fr;
+                            <button class="add-to-cart-btn" data-id="1" data-name="Fluffy Puppy" data-price="299"
+                                data-image="assets/images/fluffy-puppy.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>
+                        </div>);
+                    </div>.6;   }
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-grid">
-            <div class="footer-section">
+uantity,
+                <!-- Product 2 - Fluffy Bear -->
+                <div class="product-card" data-category="kawaii">
+                    <div class="product-3d-wrapper">
+                        <div class="product-image">
+                            <img src="assets/images/fluffy-bear.jpg" alt="Fluffy Bear Keychain">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-id="2">Quick View</button>
+                            </div>
+                        </div>
+                        <div class="product-badge new">New ✨</div>
+                    </div>enter;
+                    <div class="product-info">
+                        <span class="product-category">Kawaii Plush</span>
+                        <h3 class="product-name">Fluffy Bear</h3>
+                        <p class="product-description">Cute white bear with blue clip</p>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="current-price">₹349</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="2" data-name="Fluffy Bear" data-price="349"
+                                data-image="assets/images/fluffy-bear.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>-wrapper">
+                        </div>mipuchi</span>
+                    </div>em 0.75rem;-tagline">ILLUMINATE YOUR STYLE</span>
+                </div>ius: 999px;   </a>
+        }
+                <!-- Product 3 - Fluffy Cat -->
+                <div class="product-card" data-category="kawaii">
+                    <div class="product-3d-wrapper">s">Shop</a></li>
+                        <div class="product-image">x.html#about">About</a></li>
+                            <img src="assets/images/fluffy-cat.jpg" alt="Fluffy Cat Keychain">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-id="3">Quick View</button>
+                            </div>ctions">
+                        </div>    <button class="nav-btn" id="cart-btn" aria-label="Cart">
+                        <div class="product-badge">Handmade 💖</div>4">
+                    </div>
+                    <div class="product-info">" cy="21" r="1" />
+                        <span class="product-category">Kawaii Plush</span>61L23 6H6" />
+                        <h3 class="product-name">Fluffy Cat</h3>
+                        <p class="product-description">Handmade cat with blue bow</p>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="current-price">₹399</span>av-btn" aria-label="Account">
+                            </div>svg class="nav-icon" viewBox="0 0 24 24">
+                            <button class="add-to-cart-btn" data-id="3" data-name="Fluffy Cat" data-price="399"
+                                data-image="assets/images/fluffy-cat.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>heme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        </div>g id="theme-icon" viewBox="0 0 24 24" fill="currentColor">
+                    </div>"M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </div>
+    <!-- Cosmic Particles Background -->
+                <!-- Product 4 - Bread Keychain --> </div>
+                <div class="product-card" data-category="food">
+                    <div class="product-3d-wrapper">aria-label="Menu">
+                        <div class="product-image">
+                            <img src="assets/images/bread-keychain.jpg" alt="Bread Keychain">
+                            <div class="product-overlay">
+                                <button class="quick-view-btn" data-id="4">Quick View</button>
+                            </div>tagline">ILLUMINATE YOUR STYLE</span>
+                        </div>
+                        <div class="product-badge new">New ✨</div>
+                    </div>-links">
+                    <div class="product-info">/a></li>
+                        <span class="product-category">Food & Bakery</span>
+                        <h3 class="product-name">Happy Baguette</h3>
+                        <p class="product-description">Cute smiling bread plush</p>e-title">Your Cart ✨</h1>
+                        <div class="product-footer">-subtitle">Review your items before checkout</p>
+                            <div class="product-price">
+                                <span class="current-price">₹249</span>
+                            </div>-btn" id="cart-btn" aria-label="Cart">
+                            <button class="add-to-cart-btn" data-id="4" data-name="Happy Baguette" data-price="249"
+                                data-image="assets/images/bread-keychain.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />ar-all-btn" id="clear-all-page">Clear All</button>
+                                </svg>
+                            </button>-badge" id="cart-count">0</span>
+                        </div>               <div class="cart-items-list" id="cart-items-list">
+                    </div>
+                </div>f="account.html" class="nav-btn active" aria-label="Account">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                <!-- Product 5 - Cookie Keychain -->-4-4H8a4 4 0 0 0-4 4v2" />
+                <div class="product-card" data-category="food">ummary">
+                    <div class="product-3d-wrapper">          </svg>
+                        <div class="product-image">
+                            <img src="assets/images/cookie-keychain.jpg" alt="Cookie Keychain">
+                            <div class="product-overlay">n>Toggle theme">
+                                <button class="quick-view-btn" data-id="5">Quick View</button>Box="0 0 24 24" fill="currentColor">
+                            </div>                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </div>
+                        <div class="product-badge">Hot 🔥</div>
+                    </div>pan class="label">Shipping</span>at checkout</span>
+                    <div class="product-info">="summary-shipping">Calculated at checkout</span>
+                        <span class="product-category">Food & Bakery</span>obile-menu-btn" aria-label="Menu">
+                        <h3 class="product-name">Choco Cookie</h3>
+                        <p class="product-description">Adorable chocolate chip cookie</p>
+                        <div class="product-footer"> 18%)</span>0</span>
+                            <div class="product-price">-tax">₹0</span> </div>
+                                <span class="current-price">₹249</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="5" data-name="Choco Cookie" data-price="249"
+                                data-image="assets/images/cookie-keychain.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>alue" id="summary-total">₹0</span> (Login/Register) -->
+                            </button> <div class="auth-card" id="auth-card">
+                        </div>
+                    </div>lass="promo-code">puchi</div>
+                </div>  <label>Promo Code</label>!</h1>
+                        <div class="promo-input-group">unt</p>      <input type="text" placeholder="Enter code">
+                <!-- Product 6 - Fluffy Puppy Pink -->lder="Enter code">button">Apply</button>
+                <div class="product-card" data-category="kawaii">
+                    <div class="product-3d-wrapper">
+                        <div class="product-image">on class="auth-tab active" data-tab="login">Sign In</button>
+                            <img src="assets/images/fluffy-puppy.jpg" alt="Fluffy Puppy Pink">
+                            <div class="product-overlay">ut-btn-main" id="proceed-checkout">   Proceed to Checkout
+                                <button class="quick-view-btn" data-id="6">Quick View</button>
+                            </div>ox="0 0 24 24" width="20" height="20">
+                        </div>ath d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" />uth-form active" id="login-form">
+                        <div class="product-badge limited">Limited 💎</div>
+                    </div>                      <label for="login-email">Email Address</label>
+                    <div class="product-info">quired>lass="secure-badge">
+                        <span class="product-category">Limited Edition</span>
+                        <h3 class="product-name">Fluffy Puppy Deluxe</h3>
+                        <p class="product-description">Premium version with gift box</p>
+                        <div class="product-footer">
+                            <div class="product-price">•••••••" required> href="index.html#products">← Continue Shopping</a>
+                                <span class="current-price">₹499</span>ng</a>                    </div>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="6" data-name="Fluffy Puppy Deluxe" data-price="499"
+                                data-image="assets/images/fluffy-puppy.jpg">
+                                <svg viewBox="0 0 24 24" width="18" height="18">
+                                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" fill="none" />
+                                </svg>
+                            </button>password">Forgot password?</a>oter">
+                        </div>"> <div class="footer-grid">
+                    </div>-grid">
+                </div>="footer-section">ass="footer-logo">Lumipuchi</a>
+                <a href="index.html" class="footer-logo">Lumipuchi</a>
+                <!-- Load More -->ur everyday with handcrafted cosmic keychains.</p>      <svg viewBox="0 0 24 24" width="20" height="20">
+                <div class="load-more">troke="currentColor" stroke-width="2" fill="none" />-section">
+                    <button class="load-more-btn">Load More Products</button>
+                </div>ick Links</h3>inks">
+            </div>l class="footer-links">dex.html">Home</a></li>
+        </div>      <li><a href="index.html">Home</a></li>
+    </section>      <li><a href="index.html#products">Shop</a></li>Register Form -->
+                </ul>orm class="auth-form" id="register-form">
+    <!-- Footer -->p">
+    <footer class="site-footer">ection">or="register-name">Full Name</label>
+        <div class="footer-grid"> id="register-name" placeholder="John Doe" required>"footer-links">
+            <div class="footer-section">>i><a href="#">FAQ</a></li>
                 <a href="index.html" class="footer-logo">Lumipuchi</a>
                 <p>Illuminating your everyday with handcrafted cosmic keychains.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
+            </div>ul>      <label for="register-email">Email Address</label>
+            <div class="footer-section">" placeholder="your@email.com" required>oter-section">
+                <h3>Quick Links</h3>on">         <h3>Policies</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#products">Shop</a></li>
-                </ul>
-            </div>
+                    <li><a href="shop.html">Shop</a></li>Password</label>
+                    <li><a href="about.html">About</a></li> type="password" id="register-password" placeholder="••••••••" required>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>           <div class="strength-bar">
+            </div>ass="strength-fill" id="strength-fill"></div>>
             <div class="footer-section">
-                <h3>Support</h3>
+                <h3>Categories</h3>de with 💖 in India</p>              <span class="strength-text" id="strength-text">Enter a password</span>
                 <ul class="footer-links">
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Policies</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
+                    <li><a href="shop.html?category=kawaii">Kawaii Plush</a></li>
+                    <li><a href="shop.html?category=food">Food & Bakery</a></li>
+                    <li><a href="shop.html?category=limited">Limited Edition</a></li>
+                </ul>modal" id="cart-modal">irm Password</label>
+            </div>="cart-overlay" id="cart-overlay"></div>ype="password" id="register-confirm" placeholder="••••••••" required>anel">
+            <div class="footer-section">ass="cart-header">
+                <h3>Support</h3>der">
+                <ul class="footer-links">t" id="close-cart">
+                    <li><a href="#">FAQ</a></li>lose-cart">
+                    <li><a href="#">Shipping</a></li>0 24 24">
+                    <li><a href="#">Returns</a></li>2" stroke="currentColor" stroke-width="2" />  <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none" />
+                </ul>/svg>/svg>
+            </div>button>  </button>
+        </div>div> id="cart-items"></div>
+        <div class="footer-bottom"> id="cart-items"></div>
             <p>© 2026 Lumipuchi. Made with 💖 in India</p>
-        </div>
-    </footer>
-
-    <!-- Cart Modal -->
+        </div>  <div class="cart-subtotal"></span>pan>Subtotal:</span>
+    </footer>       <span>Subtotal:</span>"cart-total">₹0</span>
+                    <span class="cart-total" id="cart-total">₹0</span>
+    <!-- Cart Modal -->v class="social-login">
     <div class="cart-modal" id="cart-modal">
+        <div class="cart-overlay" id="cart-overlay"></div> All</button>
+        <div class="cart-panel">lear-btn" id="clear-cart">Clear All</button>>
+            <div class="cart-header">l" class="checkout-btn">Checkout</a>  </button>
+                <h2>Your Cart ✨</h2>="button" class="social-btn">
+                <button class="close-cart" id="close-cart"></span>
+                    <svg class="nav-icon" viewBox="0 0 24 24">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" />
+                    </svg>t" id="toast">
+                </button>="toast">
+            </div>s="toast-icon">✓</span>
+            <div class="cart-items" id="cart-items"></div>ated!</span>          <p>By continuing, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy
+            <div class="cart-footer"> Policy</a></p>
+                <div class="cart-subtotal">
+                    <span>Subtotal:</span>
+                    <span class="cart-total" id="cart-total">₹0</span>
+                </div>s/js/cart.js"></script>
+            </div>ssets/js/three-scene.js"></script>id="dashboard">
+            <div class="cart-actions">script>                <div class="dashboard-header">
+                <button class="clear-btn" id="clear-cart">Clear All</button>
+                <a href="checkout.html" class="checkout-btn">Checkout</a>
+            </div>ge specific functionality
+        </div>nt.addEventListener('DOMContentLoaded', () => {h2>Welcome, John!</h2>
+    </div>  updateCartPage();                            <p>john@example.com</p>
+                        </div>
+    <!-- Toast -->  </div>
+    <div class="toast" id="toast">"logout-btn" id="logout-btn">Sign Out</button>etElementById('clear-all-page').addEventListener('click', () => {
+        <span class="toast-icon">✓</span>(window.cart) {
+        <span class="toast-message" id="toast-message">Added to cart!</span>
+    </div>      <div class="dashboard-grid">
+                    <div class="dashboard-card">
+    <!-- Scripts -->    <div class="dashboard-card-header">
+    <script src="assets/js/theme.js"></script>ard-card-icon">📦</div>
+    <script src="assets/js/cart.js"></script>ard-card-title">My Orders</h3>
+    <script src="assets/js/three-scene.js"></script>
+    <script src="assets/js/main.js"></script>and view order history.</p>Id('cart-items-list');
+</body>                 <div class="order-preview">em-count-display');
+                            <div class="order-preview-item">
+</html>                         <span class="order-id">#LMP-847291</span>
+                                <span class="order-status delivered">Delivered</span>
+                            </div>
+                            <div class="order-preview-item">
+                                <span class="order-id">#LMP-923847</span>
+                                <span class="order-status shipping">Shipping</span>
+                            </div>== 0) {
+                        </div>innerHTML = `
+                    </div>          <div class="empty-cart-state">
+>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-icon">❤️</div>roducts</a>
+                            <h3 class="dashboard-card-title">Wishlist</h3>
+                        </div>
+                        <p>3 items saved for later. View your favorite keychains.</p>ary(0);
+                    </div>                return;
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-icon">📍</div>
+                            <h3 class="dashboard-card-title">Addresses</h3>m-image">
+                        </div>
+                        <p>Manage your shipping and billing addresses.</p>
+                    </div>          <div class="cart-item-details">
+
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div class="dashboard-card-icon">⚙️</div>g, #9333ea, #ec4899)"></span>
+                            <h3 class="dashboard-card-title">Account Settings</h3>ple</span>
+                        </div>
+                        <p>Update your profile, password, and preferences.</p>
+                    </div>cart-item-quantity">
+                </div>n class="cart-qty-btn" onclick="updateItemQty('${item.id}', ${item.quantity - 1})">−</button>
+            </div>pan>${item.quantity}</span>
+        </div>utton class="cart-qty-btn" onclick="updateItemQty('${item.id}', ${item.quantity + 1})">+</button>
+    </section>          </div>
+art-item-price">
+    <!-- Cart Modal -->m.price * item.quantity).toLocaleString()}</span>
+    <div class="cart-modal" id="cart-modal">String()} each</span>
         <div class="cart-overlay" id="cart-overlay"></div>
-        <div class="cart-panel">
+        <div class="cart-panel">btn" onclick="removeCartItem('${item.id}')" title="Remove">×</button>
             <div class="cart-header">
                 <h2>Your Cart ✨</h2>
                 <button class="close-cart" id="close-cart">
                     <svg class="nav-icon" viewBox="0 0 24 24">
                         <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" />
                     </svg>
-                </button>
-            </div>
-            <div class="cart-items" id="cart-items"></div>
-            <div class="cart-footer">
+                </button>pdateSummary(subtotal) {
+            </div>l > 0 ? 99 : 0);
+            <div class="cart-items" id="cart-items"></div>btotal * 0.18);
+            <div class="cart-footer">ng + tax;
                 <div class="cart-subtotal">
-                    <span>Subtotal:</span>
-                    <span class="cart-total" id="cart-total">₹0</span>
-                </div>
-            </div>
+                    <span>Subtotal:</span>`₹${subtotal.toLocaleString()}`;
+                    <span class="cart-total" id="cart-total">₹0</span>etElementById('summary-shipping').textContent = subtotal > 999 ? 'FREE' : (subtotal > 0 ? '₹99' : '₹0');
+                </div>nt.getElementById('summary-tax').textContent = `₹${tax.toLocaleString()}`;
+            </div>ummary-total').textContent = `₹${total.toLocaleString()}`;
             <div class="cart-actions">
                 <button class="clear-btn" id="clear-cart">Clear All</button>
-                <a href="checkout.html" class="checkout-btn">Checkout</a>
-            </div>
-        </div>
-    </div>
+                <a href="checkout.html" class="checkout-btn">Checkout</a>pdateItemQty(id, newQty) {
+            </div> (newQty < 1) {
+        </div>      removeCartItem(id);
+    </div>                return;
 
     <!-- Toast -->
-    <div class="toast" id="toast">
+    <div class="toast" id="toast">y(id, newQty);
         <span class="toast-icon">✓</span>
-        <span class="toast-message" id="toast-message">Updated!</span>
-    </div>
+        <span class="toast-message" id="toast-message">Welcome back!</span>  }
+    </div>        }
 
     <!-- Scripts -->
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/cart.js"></script>
     <script src="assets/js/three-scene.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>            }
 
     <script>
-        // Cart page specific functionality
         document.addEventListener('DOMContentLoaded', () => {
-            updateCartPage();
-
-            // Clear all button
-            document.getElementById('clear-all-page').addEventListener('click', () => {
-                if (window.cart) {
-                    window.cart.clearCart();
-                    updateCartPage();
-                }
-            });
-        });
-
-        function updateCartPage() {
-            const container = document.getElementById('cart-items-list');
-            const countDisplay = document.getElementById('item-count-display');
-
-            if (!window.cart) return;
-
-            const items = window.cart.items;
-
-            countDisplay.textContent = items.length;
-
-            if (items.length === 0) {
-                container.innerHTML = `
-          <div class="empty-cart-state">
-            <div class="empty-cart-icon">🛒</div>
-            <h3>Your cart is empty</h3>
-            <p>Looks like you haven't added any keychains yet!</p>
-            <a href="index.html#products" class="cta-btn primary">Browse Products</a>
-          </div>
-        `;
-                updateSummary(0);
-                return;
-            }
-
-            container.innerHTML = items.map(item => `
-        <div class="cart-page-item" data-id="${item.id}">
-          <div class="cart-item-image">
-            <img src="${item.image}" alt="${item.name}">
-          </div>
-          <div class="cart-item-details">
-            <h3>${item.name}</h3>
-            <p>Premium Keychain</p>
-            <div class="cart-item-variant">
-              <span class="variant-color" style="background: linear-gradient(135deg, #9333ea, #ec4899)"></span>
-              <span>Galaxy Purple</span>
-            </div>
-          </div>
-          <div class="cart-item-quantity">
-            <button class="cart-qty-btn" onclick="updateItemQty('${item.id}', ${item.quantity - 1})">−</button>
-            <span>${item.quantity}</span>
-            <button class="cart-qty-btn" onclick="updateItemQty('${item.id}', ${item.quantity + 1})">+</button>
-          </div>
-          <div class="cart-item-price">
-            <span class="item-total">₹${(item.price * item.quantity).toLocaleString()}</span>
-            <span class="item-unit">₹${item.price.toLocaleString()} each</span>
-          </div>
-          <button class="remove-item-btn" onclick="removeCartItem('${item.id}')" title="Remove">×</button>
-        </div>
-      `).join('');
-
-            updateSummary(window.cart.getTotal());
-        }
-
-        function updateSummary(subtotal) {
-            const shipping = subtotal > 999 ? 0 : (subtotal > 0 ? 99 : 0);
-            const tax = Math.round(subtotal * 0.18);
-            const total = subtotal + shipping + tax;
-
-            document.getElementById('summary-subtotal').textContent = `₹${subtotal.toLocaleString()}`;
-            document.getElementById('summary-shipping').textContent = subtotal > 999 ? 'FREE' : (subtotal > 0 ? '₹99' : '₹0');
-            document.getElementById('summary-tax').textContent = `₹${tax.toLocaleString()}`;
-            document.getElementById('summary-total').textContent = `₹${total.toLocaleString()}`;
-        }
-
-        function updateItemQty(id, newQty) {
-            if (newQty < 1) {
-                removeCartItem(id);
-                return;
-            }
-            if (window.cart) {
-                window.cart.updateQuantity(id, newQty);
-                updateCartPage();
-            }
-        }
-
-        function removeCartItem(id) {
-            if (window.cart) {
-                window.cart.removeItem(id);
-                updateCartPage();
-            }
-        }
-    </script>
-</body>
-
+            initAuthTabs();
+            initForms();            initPasswordStrength();            checkLoggedIn();        });        function initAuthTabs() {            const tabs = document.querySelectorAll('.auth-tab');            const forms = document.querySelectorAll('.auth-form');            const title = document.querySelector('.auth-title');            const subtitle = document.querySelector('.auth-subtitle');            tabs.forEach(tab => {                tab.addEventListener('click', () => {                    tabs.forEach(t => t.classList.remove('active'));                    forms.forEach(f => f.classList.remove('active'));                    tab.classList.add('active');                    const formId = tab.dataset.tab + '-form';                    document.getElementById(formId).classList.add('active');                    if (tab.dataset.tab === 'login') {                        title.textContent = 'Welcome Back!';                        subtitle.textContent = 'Sign in to access your account';                    } else {                        title.textContent = 'Join Lumipuchi';                        subtitle.textContent = 'Create an account to get started';                    }                });            });        }        function initForms() {            const loginForm = document.getElementById('login-form');            const registerForm = document.getElementById('register-form');            loginForm.addEventListener('submit', (e) => {                e.preventDefault();                const email = document.getElementById('login-email').value;                // Simulate login                localStorage.setItem('lumipuchi_user', JSON.stringify({                    name: email.split('@')[0],                    email: email                }));                showDashboard();                showToast('Welcome back!');            });            registerForm.addEventListener('submit', (e) => {                e.preventDefault();                const name = document.getElementById('register-name').value;                const email = document.getElementById('register-email').value;                const password = document.getElementById('register-password').value;                const confirm = document.getElementById('register-confirm').value;                if (password !== confirm) {                    alert('Passwords do not match');                    return;                }                // Simulate registration                localStorage.setItem('lumipuchi_user', JSON.stringify({                    name: name,                    email: email                }));                showDashboard();                showToast('Account created successfully!');            });            // Logout            document.getElementById('logout-btn').addEventListener('click', () => {                localStorage.removeItem('lumipuchi_user');                showAuthCard();                showToast('Signed out successfully');            });        }        function initPasswordStrength() {            const passwordInput = document.getElementById('register-password');            const strengthFill = document.getElementById('strength-fill');            const strengthText = document.getElementById('strength-text');            passwordInput.addEventListener('input', () => {                const password = passwordInput.value;                let strength = 0;                if (password.length >= 8) strength++;                if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;                if (password.match(/[0-9]/)) strength++;                if (password.match(/[^a-zA-Z0-9]/)) strength++;                strengthFill.className = 'strength-fill';                if (password.length === 0) {                    strengthText.textContent = 'Enter a password';                } else if (strength <= 1) {                    strengthFill.classList.add('weak');                    strengthText.textContent = 'Weak password';                } else if (strength <= 2) {                    strengthFill.classList.add('medium');                    strengthText.textContent = 'Medium strength';                } else {                    strengthFill.classList.add('strong');                    strengthText.textContent = 'Strong password';                }            });        }        function checkLoggedIn() {            const user = localStorage.getItem('lumipuchi_user');            if (user) {                showDashboard();            }        }        function showDashboard() {            const user = JSON.parse(localStorage.getItem('lumipuchi_user') || '{}');            const authCard = document.getElementById('auth-card');            const dashboard = document.getElementById('dashboard');            // Update dashboard with user info            const avatar = dashboard.querySelector('.user-avatar');            const userName = dashboard.querySelector('.user-details h2');            const userEmail = dashboard.querySelector('.user-details p');            avatar.textContent = user.name ? user.name[0].toUpperCase() : 'U';            userName.textContent = `Welcome, ${user.name || 'User'}!`;            userEmail.textContent = user.email || '';            authCard.style.display = 'none';            dashboard.classList.add('active');        }        function showAuthCard() {            const authCard = document.getElementById('auth-card');            const dashboard = document.getElementById('dashboard');            dashboard.classList.remove('active');            authCard.style.display = 'block';        }        function showToast(message) {            const toast = document.getElementById('toast');            const toastMessage = document.getElementById('toast-message');            toastMessage.textContent = message;            toast.classList.add('show');            setTimeout(() => {                toast.classList.remove('show');            }, 3000);        }    </script></body>
 </html>
